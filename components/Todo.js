@@ -27,6 +27,7 @@ class Todo {
 
     const dueDate = new Date(this._data.date);
     if (!Number.isNaN(dueDate.getTime())) {
+      this._todoDate.dateTime = dueDate.toISOString().split("T")[0];
       this._todoDate.textContent = `Due: ${dueDate.toLocaleString("en-US", {
         year: "numeric",
         month: "short",
