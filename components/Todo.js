@@ -41,8 +41,8 @@ class Todo {
   }
 
   _setEventListeners() {
-    this._todoCheckboxEl.addEventListener("change", () => {
-      this._toggleCompletion();
+    this._todoCheckboxEl.addEventListener("change", (evt) => {
+      this._setCompletion(evt.target.checked);
       this._handleCheck(this._completed);
     });
 
@@ -52,8 +52,8 @@ class Todo {
     });
   }
 
-  _toggleCompletion = () => {
-    this._completed = !this._completed;
+  _setCompletion = (completed) => {
+    this._completed = completed;
   };
 
   _remove = () => {
