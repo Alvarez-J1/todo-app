@@ -67,6 +67,7 @@
                   <label class="popup__label" for="todo-date">
                     When does it need to be done? (optional)
                     <input
+                      aria-describedby="todo-date-error"
                       class="popup__input popup__input_type_date"
                       id="todo-date"
                       name="date"
@@ -74,7 +75,11 @@
                       min="2023-01-01"
                       max="3000-12-31"
                     />
-                    <span class="popup__error" id="todo-date-error"></span>
+                    <span
+                      aria-live="polite"
+                      class="popup__error"
+                      id="todo-date-error"
+                    ></span>
                   </label>
                 </fieldset>
                 <button class="button popup__button" type="submit">
