@@ -48,6 +48,7 @@
                   <label class="popup__label" for="todo-name">
                     What needs to be done?
                     <input
+                      aria-describedby="todo-name-error"
                       class="popup__input"
                       id="todo-name"
                       maxlength="40"
@@ -57,7 +58,11 @@
                       required
                       type="text"
                     />
-                    <span class="popup__error" id="todo-name-error"></span>
+                    <span
+                      aria-live="polite"
+                      class="popup__error"
+                      id="todo-name-error"
+                    ></span>
                   </label>
                   <label class="popup__label" for="todo-date">
                     When does it need to be done? (optional)
