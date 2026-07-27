@@ -33,6 +33,8 @@ class Todo {
         month: "short",
         day: "numeric",
       })}`;
+    } else {
+      this._todoDate.removeAttribute("datetime");
     }
   }
 
