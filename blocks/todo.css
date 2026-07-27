@@ -44,6 +44,11 @@
   -webkit-box-orient: vertical;
 }
 
+.todo_completed .todo__name {
+  color: #7d7d7d;
+  text-decoration: line-through;
+}
+
 .todo__date {
   font-weight: 400;
   color: #7d7d7d;
