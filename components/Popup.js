@@ -32,12 +32,3 @@ export default class Popup {
     });
   }
 }
-
-//this._popupCloseBtn.addEventListener("click", () => {
-//this.close();
-//});
-
-//if (evt.target === this._popupElement) {
-//this.close();
-// }
-//    });
