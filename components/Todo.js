@@ -3,7 +3,7 @@ class Todo {
     this._completed = data.completed;
     this._data = data;
     this._templateElement = document.querySelector(selector);
-    this._hanldeCheck = handleCheck;
+    this._handleCheck = handleCheck;
     this._handleDelete = handleDelete;
   }
 
@@ -35,8 +35,8 @@ class Todo {
 
   _setEventListeners() {
     this._todoCheckboxEl.addEventListener("change", () => {
-      this._toogleCompletion();
-      this._hanldeCheck(this._completed);
+      this._toggleCompletion();
+      this._handleCheck(this._completed);
     });
 
     this._todoDeleteBtn.addEventListener("click", () => {
@@ -45,7 +45,7 @@ class Todo {
     });
   }
 
-  _toogleCompletion = () => {
+  _toggleCompletion = () => {
     this._completed = !this._completed;
   };
 
