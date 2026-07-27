@@ -13,6 +13,7 @@ class Todo {
     this._todoCheckboxEl.checked = this._data.completed;
 
     this._todoCheckboxEl.id = `todo-${this._data.id}`;
+    this._todoCheckboxEl.setAttribute("aria-label", this._data.name);
     todoLabel.setAttribute("for", `todo-${this._data.id}`);
   }
 
