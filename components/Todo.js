@@ -31,6 +31,9 @@ class Todo {
 
   _generateDeleteBtn() {
     this._todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
+    const deleteLabel = `Delete ${this._data.name}`;
+    this._todoDeleteBtn.setAttribute("aria-label", deleteLabel);
+    this._todoDeleteBtn.title = deleteLabel;
   }
 
   _setEventListeners() {
