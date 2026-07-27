@@ -6,8 +6,12 @@ import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import TodoCounter from "../components/TodoCounter.js";
 const addTodoButton = document.querySelector(".button_action_add");
+const todoDateInput = document.querySelector("#todo-date");
 
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
+const today = new Date();
+today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+todoDateInput.min = today.toISOString().split("T")[0];
 
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template", handleCheck, handleDelete);
