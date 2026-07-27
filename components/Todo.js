@@ -11,6 +11,7 @@ class Todo {
     this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
     const todoLabel = this._todoElement.querySelector(".todo__label");
     this._todoCheckboxEl.checked = this._data.completed;
+    this._todoElement.classList.toggle("todo_completed", this._completed);
 
     this._todoCheckboxEl.id = `todo-${this._data.id}`;
     this._todoCheckboxEl.setAttribute("aria-label", this._data.name);
@@ -55,6 +56,7 @@ class Todo {
 
   _setCompletion = (completed) => {
     this._completed = completed;
+    this._todoElement.classList.toggle("todo_completed", this._completed);
   };
 
   _remove = () => {
