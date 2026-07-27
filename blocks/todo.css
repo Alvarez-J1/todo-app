@@ -30,6 +30,11 @@
   background-image: url(../images/checkbox.svg);
 }
 
+.todo__completed:focus-visible {
+  outline: 3px solid #5877e7;
+  outline-offset: 3px;
+}
+
 .todo__name {
   font-weight: 500;
   color: #181818;
