@@ -11,6 +11,11 @@
   background-color: #2a45a3;
 }
 
+.button:focus-visible {
+  outline: 3px solid #181818;
+  outline-offset: 3px;
+}
+
 .button_disabled {
   pointer-events: none;
   background-color: #5877e74d;
