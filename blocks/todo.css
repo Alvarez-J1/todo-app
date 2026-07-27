@@ -62,6 +62,10 @@
   flex-shrink: 0;
 }
 
+.todo__date:empty {
+  display: none;
+}
+
 .todo__buttons {
   margin: 0;
   padding: 0;
