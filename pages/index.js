@@ -43,8 +43,10 @@ section.renderItems();
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
   handleFormSubmit: (values) => {
-    const date = new Date(values.date);
-    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    const date = values.date ? new Date(values.date) : null;
+    if (date) {
+      date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    }
 
     const newTodo = {
       name: values.name.trim(),
