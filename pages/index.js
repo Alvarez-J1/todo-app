@@ -61,12 +61,11 @@ const addTodoForm = addTodoPopup.getForm();
 
 addTodoPopup.setEventListeners();
 
-addTodoButton.addEventListener("click", () => {
-  addTodoPopup.open();
-});
-
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 
 newTodoValidator.enableValidation();
 
-newTodoValidator.resetValidation();
+addTodoButton.addEventListener("click", () => {
+  newTodoValidator.resetValidation();
+  addTodoPopup.open();
+});
