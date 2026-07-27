@@ -16,7 +16,12 @@
         <header class="header">
           <h1 class="header__title">The Simple ToDo App</h1>
           <p class="header__banner">Do these things</p>
-          <button class="button button_action_add header__button" type="button">
+          <button
+            aria-controls="add-todo-popup"
+            aria-haspopup="dialog"
+            class="button button_action_add header__button"
+            type="button"
+          >
             + Add Todo
           </button>
           <div class="popup" id="add-todo-popup">
