@@ -72,6 +72,7 @@ addTodoButton.addEventListener("click", () => {
   newTodoValidator.resetValidation();
   addTodoButton.setAttribute("aria-expanded", "true");
   addTodoPopup.open();
+  addTodoForm.elements.name.focus();
 });
 
 addTodoPopupElement.addEventListener("popup:close", () => {
