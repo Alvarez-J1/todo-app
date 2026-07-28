@@ -69,5 +69,6 @@ newTodoValidator.enableValidation();
 
 addTodoButton.addEventListener("click", () => {
   newTodoValidator.resetValidation();
+  addTodoButton.setAttribute("aria-expanded", "true");
   addTodoPopup.open();
 });
