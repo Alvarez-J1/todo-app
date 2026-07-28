@@ -77,4 +77,5 @@ addTodoButton.addEventListener("click", () => {
 
 addTodoPopupElement.addEventListener("popup:close", () => {
   addTodoButton.setAttribute("aria-expanded", "false");
+  addTodoButton.focus();
 });
