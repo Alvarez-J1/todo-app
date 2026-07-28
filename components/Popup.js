@@ -20,6 +20,7 @@ export default class Popup {
     this._popupElement.classList.remove("popup_visible");
     this._popupElement.setAttribute("aria-hidden", "true");
     document.removeEventListener("keydown", this._handleEscapeClose);
+    this._popupElement.dispatchEvent(new CustomEvent("popup:close"));
   }
 
   setEventListeners() {
