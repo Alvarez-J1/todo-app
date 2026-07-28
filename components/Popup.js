@@ -12,11 +12,13 @@ export default class Popup {
 
   open() {
     this._popupElement.classList.add("popup_visible");
+    this._popupElement.setAttribute("aria-hidden", "false");
     document.addEventListener("keydown", this._handleEscapeClose);
   }
 
   close() {
     this._popupElement.classList.remove("popup_visible");
+    this._popupElement.setAttribute("aria-hidden", "true");
     document.removeEventListener("keydown", this._handleEscapeClose);
   }
 
