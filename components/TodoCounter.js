@@ -12,9 +12,9 @@ export default class TodoCounter {
   // to-do is deleted.
   updateCompleted = (increment) => {
     if (increment) {
-      this._completed++;
+      this._completed = Math.min(this._completed + 1, this._total);
     } else {
-      this._completed--;
+      this._completed = Math.max(this._completed - 1, 0);
     }
     this._updateText();
   };
