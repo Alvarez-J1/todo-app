@@ -6,6 +6,7 @@ import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import TodoCounter from "../components/TodoCounter.js";
 const addTodoButton = document.querySelector(".button_action_add");
+const addTodoPopupElement = document.querySelector("#add-todo-popup");
 const todoDateInput = document.querySelector("#todo-date");
 
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
@@ -71,4 +72,8 @@ addTodoButton.addEventListener("click", () => {
   newTodoValidator.resetValidation();
   addTodoButton.setAttribute("aria-expanded", "true");
   addTodoPopup.open();
+});
+
+addTodoPopupElement.addEventListener("popup:close", () => {
+  addTodoButton.setAttribute("aria-expanded", "false");
 });
