@@ -17,10 +17,11 @@ It provides functionality to:
 
 Technologies:
 
-1. HTML & CSS:
-2. Javascript
-3. Vs Code
-4. Git
+1. HTML
+2. CSS
+3. JavaScript
+4. VS Code
+5. Git
 
 Techniques:
 
