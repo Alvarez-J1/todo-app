@@ -49,6 +49,11 @@
   opacity: 0.6;
 }
 
+.popup__close:focus-visible {
+  outline: 3px solid #5877e7;
+  outline-offset: 3px;
+}
+
 .popup__title {
   margin: 0;
   display: inline;
