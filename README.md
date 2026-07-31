@@ -31,4 +31,4 @@ Techniques:
 
 ## Deployment
 
-This project is deployed on GitHub Pages: https://alvarez-j1.github.io/se_project_todo-app/
+This project is deployed on GitHub Pages: alvarez-j1.github.io/todo-app/
