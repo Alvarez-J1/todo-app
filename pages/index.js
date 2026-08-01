@@ -20,8 +20,9 @@ const todoDateInput = document.querySelector(todoDateSelector);
 const todoCounter = new TodoCounter(initialTodos, counterSelector);
 
 function getLocalDateString(date) {
-  date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
-  return date.toISOString().split("T")[0];
+  const localDate = new Date(date);
+  localDate.setMinutes(localDate.getMinutes() - localDate.getTimezoneOffset());
+  return localDate.toISOString().split("T")[0];
 }
 
 const todayDate = new Date();
