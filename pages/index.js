@@ -8,13 +8,14 @@ import TodoCounter from "../components/TodoCounter.js";
 
 const addButtonSelector = ".button_action_add";
 const addPopupSelector = "#add-todo-popup";
+const counterSelector = ".counter__text";
 const todoDateSelector = "#todo-date";
 
 const addTodoButton = document.querySelector(addButtonSelector);
 const addTodoPopupElement = document.querySelector(addPopupSelector);
 const todoDateInput = document.querySelector(todoDateSelector);
 
-const todoCounter = new TodoCounter(initialTodos, ".counter__text");
+const todoCounter = new TodoCounter(initialTodos, counterSelector);
 const today = new Date();
 today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
 todoDateInput.min = today.toISOString().split("T")[0];
