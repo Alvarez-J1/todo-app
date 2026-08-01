@@ -2,6 +2,7 @@ export default class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
     this._handleEscapeClose = this._handleEscapeClose.bind(this);
+    this._isOpen = false;
   }
 
   _handleEscapeClose(evt) {
@@ -11,9 +12,14 @@ export default class Popup {
   }
 
   open() {
+    if (this._isOpen) {
+      return;
+    }
+
     this._popupElement.classList.add("popup_visible");
     this._popupElement.setAttribute("aria-hidden", "false");
     document.addEventListener("keydown", this._handleEscapeClose);
+    this._isOpen = true;
   }
 
   close() {
