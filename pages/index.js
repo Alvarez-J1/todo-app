@@ -7,9 +7,10 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import TodoCounter from "../components/TodoCounter.js";
 
 const addButtonSelector = ".button_action_add";
+const addPopupSelector = "#add-todo-popup";
 
 const addTodoButton = document.querySelector(addButtonSelector);
-const addTodoPopupElement = document.querySelector("#add-todo-popup");
+const addTodoPopupElement = document.querySelector(addPopupSelector);
 const todoDateInput = document.querySelector("#todo-date");
 
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
@@ -45,7 +46,7 @@ const section = new Section({
 section.renderItems();
 
 const addTodoPopup = new PopupWithForm({
-  popupSelector: "#add-todo-popup",
+  popupSelector: addPopupSelector,
   handleFormSubmit: (values) => {
     const date = values.date ? new Date(values.date) : null;
     if (date) {
