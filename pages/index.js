@@ -18,9 +18,14 @@ const addTodoPopupElement = document.querySelector(addPopupSelector);
 const todoDateInput = document.querySelector(todoDateSelector);
 
 const todoCounter = new TodoCounter(initialTodos, counterSelector);
+
+function getLocalDateString(date) {
+  date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+  return date.toISOString().split("T")[0];
+}
+
 const todayDate = new Date();
-todayDate.setMinutes(todayDate.getMinutes() - todayDate.getTimezoneOffset());
-todoDateInput.min = todayDate.toISOString().split("T")[0];
+todoDateInput.min = getLocalDateString(todayDate);
 
 const generateTodo = (data) => {
   const todo = new Todo(data, todoTemplateSelector, handleCheck, handleDelete);
