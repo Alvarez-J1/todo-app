@@ -72,7 +72,7 @@ const addTodoPopup = new PopupWithForm({
 
     const newTodo = {
       name: values.name.trim(),
-      date: date,
+      date,
       id: uuidv4(),
       completed: false,
     };
