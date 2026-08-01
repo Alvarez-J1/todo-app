@@ -10,7 +10,7 @@ class Todo {
   _generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
     const todoLabel = this._todoElement.querySelector(".todo__label");
-    this._todoCheckboxEl.checked = this._data.completed;
+    this._todoCheckboxEl.checked = this._completed;
     this._todoElement.classList.toggle("todo_completed", this._completed);
 
     this._todoCheckboxEl.id = `todo-${this._data.id}`;
