@@ -34,13 +34,14 @@ class Todo {
     const dueDate = new Date(this._data.date);
     if (!Number.isNaN(dueDate.getTime())) {
       this._todoDate.dateTime = dueDate.toISOString().split("T")[0];
-      this._todoDate.textContent = `Due: ${dueDate.toLocaleString(
-        "en-US",
-        DATE_FORMAT_OPTIONS
-      )}`;
+      this._todoDate.textContent = `Due: ${this._formatDate(dueDate)}`;
     } else {
       this._todoDate.removeAttribute("datetime");
     }
+  }
+
+  _formatDate(date) {
+    return date.toLocaleString("en-US", DATE_FORMAT_OPTIONS);
   }
 
   _generateDeleteBtn() {
