@@ -21,6 +21,7 @@ class FormValidator {
     const errorElementId = `#${inputElement.id}-error`;
     const errorElement = this._formEl.querySelector(errorElementId);
     inputElement.classList.remove(this._inputErrorClass);
+    inputElement.removeAttribute("aria-invalid");
     errorElement.classList.remove(this._errorClass);
     errorElement.textContent = "";
   }
