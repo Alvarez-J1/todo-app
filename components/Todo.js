@@ -1,3 +1,9 @@
+const DATE_FORMAT_OPTIONS = {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+};
+
 class Todo {
   constructor(data, selector, handleCheck, handleDelete) {
     this._completed = Boolean(data.completed);
@@ -28,11 +34,10 @@ class Todo {
     const dueDate = new Date(this._data.date);
     if (!Number.isNaN(dueDate.getTime())) {
       this._todoDate.dateTime = dueDate.toISOString().split("T")[0];
-      this._todoDate.textContent = `Due: ${dueDate.toLocaleString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      })}`;
+      this._todoDate.textContent = `Due: ${dueDate.toLocaleString(
+        "en-US",
+        DATE_FORMAT_OPTIONS
+      )}`;
     } else {
       this._todoDate.removeAttribute("datetime");
     }
