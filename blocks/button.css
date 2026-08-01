@@ -19,6 +19,7 @@
 .button_disabled {
   pointer-events: none;
   background-color: #5877e74d;
+  cursor: not-allowed;
 }
 
 .button_action_add {
