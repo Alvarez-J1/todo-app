@@ -25,6 +25,16 @@ function getLocalDateString(date) {
   return localDate.toISOString().split("T")[0];
 }
 
+function parseTodoDate(dateValue) {
+  if (!dateValue) {
+    return null;
+  }
+
+  const date = new Date(dateValue);
+  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+  return date;
+}
+
 const todayDate = new Date();
 todoDateInput.min = getLocalDateString(todayDate);
 
@@ -58,10 +68,7 @@ section.renderItems();
 const addTodoPopup = new PopupWithForm({
   popupSelector: addPopupSelector,
   handleFormSubmit: (values) => {
-    const date = values.date ? new Date(values.date) : null;
-    if (date) {
-      date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-    }
+    const date = parseTodoDate(values.date);
 
     const newTodo = {
       name: values.name.trim(),
