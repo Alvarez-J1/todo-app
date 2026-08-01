@@ -23,9 +23,14 @@ export default class Popup {
   }
 
   close() {
+    if (!this._isOpen) {
+      return;
+    }
+
     this._popupElement.classList.remove("popup_visible");
     this._popupElement.setAttribute("aria-hidden", "true");
     document.removeEventListener("keydown", this._handleEscapeClose);
+    this._isOpen = false;
     this._popupElement.dispatchEvent(new CustomEvent("popup:close"));
   }
 
