@@ -9,6 +9,7 @@ import TodoCounter from "../components/TodoCounter.js";
 const addButtonSelector = ".button_action_add";
 const addPopupSelector = "#add-todo-popup";
 const counterSelector = ".counter__text";
+const todosListSelector = ".todos__list";
 const todoTemplateSelector = "#todo-template";
 const todoDateSelector = "#todo-date";
 
@@ -44,7 +45,7 @@ const section = new Section({
     const todo = generateTodo(item);
     section.addItem(todo);
   },
-  containerSelector: ".todos__list",
+  containerSelector: todosListSelector,
 });
 section.renderItems();
 
