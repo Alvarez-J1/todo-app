@@ -90,6 +90,11 @@
   opacity: 0.6;
 }
 
+.todo__delete-btn:focus-visible {
+  outline: 3px solid #5877e7;
+  outline-offset: 3px;
+}
+
 .todo__delete-btn::before {
   content: "Delete";
 }
