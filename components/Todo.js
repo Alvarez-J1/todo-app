@@ -67,6 +67,7 @@ class Todo {
 
   _setCompletion = (completed) => {
     this._completed = completed;
+    this._todoCheckboxEl.setAttribute("aria-checked", String(this._completed));
     this._todoElement.classList.toggle("todo_completed", this._completed);
   };
 
