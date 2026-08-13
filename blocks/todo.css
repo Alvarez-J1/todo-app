@@ -127,3 +127,9 @@
     content: "";
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .todo__delete-btn {
+    transition: none;
+  }
+}
