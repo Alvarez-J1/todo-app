@@ -30,6 +30,7 @@ class Todo {
     this._todoDate = this._todoElement.querySelector(".todo__date");
     if (!this._data.date) {
       this._todoDate.textContent = "";
+      this._todoDate.removeAttribute("title");
       return;
     }
 
