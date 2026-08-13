@@ -21,6 +21,7 @@ export default class TodoCounter {
     } else {
       this._total = Math.max(this._total - 1, 0);
     }
+    this._completed = Math.min(this._completed, this._total);
     this._updateText();
   };
 
