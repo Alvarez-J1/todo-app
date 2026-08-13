@@ -8,9 +8,13 @@ class FormValidator {
     this._formEl = formEl;
   }
 
-  _showInputError(inputElement, errorMessage) {
+  _getErrorElement(inputElement) {
     const errorElementId = `#${inputElement.id}-error`;
-    const errorElement = this._formEl.querySelector(errorElementId);
+    return this._formEl.querySelector(errorElementId);
+  }
+
+  _showInputError(inputElement, errorMessage) {
+    const errorElement = this._getErrorElement(inputElement);
     inputElement.classList.add(this._inputErrorClass);
     inputElement.setAttribute("aria-invalid", "true");
     errorElement.textContent = errorMessage;
@@ -18,8 +22,7 @@ class FormValidator {
   }
 
   _hideInputError(inputElement) {
-    const errorElementId = `#${inputElement.id}-error`;
-    const errorElement = this._formEl.querySelector(errorElementId);
+    const errorElement = this._getErrorElement(inputElement);
     inputElement.classList.remove(this._inputErrorClass);
     inputElement.removeAttribute("aria-invalid");
     errorElement.classList.remove(this._errorClass);
