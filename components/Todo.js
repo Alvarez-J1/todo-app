@@ -42,6 +42,7 @@ class Todo {
       this._todoDate.title = dueDateText;
     } else {
       this._todoDate.removeAttribute("datetime");
+      this._todoDate.removeAttribute("title");
     }
   }
 
