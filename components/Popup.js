@@ -31,7 +31,9 @@ export default class Popup {
     this._popupElement.setAttribute("aria-hidden", "true");
     document.removeEventListener("keydown", this._handleEscapeClose);
     this._isOpen = false;
-    this._popupElement.dispatchEvent(new CustomEvent("popup:close"));
+    this._popupElement.dispatchEvent(
+      new CustomEvent("popup:close", { bubbles: true })
+    );
   }
 
   setEventListeners() {
