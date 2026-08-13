@@ -21,6 +21,7 @@ class Todo {
 
     this._todoCheckboxEl.id = `todo-${this._data.id}`;
     this._todoCheckboxEl.name = `todo-${this._data.id}`;
+    this._todoCheckboxEl.setAttribute("aria-checked", String(this._completed));
     this._todoCheckboxEl.setAttribute("aria-label", this._data.name);
     todoLabel.setAttribute("for", `todo-${this._data.id}`);
   }
