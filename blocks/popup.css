@@ -110,6 +110,11 @@
   color: #181818;
 }
 
+.popup__input:focus-visible {
+  outline: 3px solid #5877e7;
+  outline-offset: 2px;
+}
+
 .popup__input_type_date {
   color: #7d7d7d;
 }
