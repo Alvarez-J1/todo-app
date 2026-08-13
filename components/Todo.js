@@ -13,17 +13,23 @@ class Todo {
     this._handleDelete = handleDelete;
   }
 
+  _getCheckboxId() {
+    return `todo-${this._data.id}`;
+  }
+
   _generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
     const todoLabel = this._todoElement.querySelector(".todo__label");
+    const checkboxId = this._getCheckboxId();
+
     this._todoCheckboxEl.checked = this._completed;
     this._todoElement.classList.toggle("todo_completed", this._completed);
 
-    this._todoCheckboxEl.id = `todo-${this._data.id}`;
-    this._todoCheckboxEl.name = `todo-${this._data.id}`;
+    this._todoCheckboxEl.id = checkboxId;
+    this._todoCheckboxEl.name = checkboxId;
     this._todoCheckboxEl.setAttribute("aria-checked", String(this._completed));
     this._todoCheckboxEl.setAttribute("aria-label", this._data.name);
-    todoLabel.setAttribute("for", `todo-${this._data.id}`);
+    todoLabel.setAttribute("for", checkboxId);
   }
 
   _generateDates() {
