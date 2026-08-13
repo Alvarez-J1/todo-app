@@ -41,3 +41,9 @@
     font-size: 16px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .button_action_add {
+    transition: none;
+  }
+}
