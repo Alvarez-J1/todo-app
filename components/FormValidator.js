@@ -15,6 +15,10 @@ class FormValidator {
 
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._getErrorElement(inputElement);
+    if (!errorElement) {
+      return;
+    }
+
     inputElement.classList.add(this._inputErrorClass);
     inputElement.setAttribute("aria-invalid", "true");
     errorElement.textContent = errorMessage;
@@ -25,6 +29,10 @@ class FormValidator {
     const errorElement = this._getErrorElement(inputElement);
     inputElement.classList.remove(this._inputErrorClass);
     inputElement.removeAttribute("aria-invalid");
+    if (!errorElement) {
+      return;
+    }
+
     errorElement.classList.remove(this._errorClass);
     errorElement.textContent = "";
   }
