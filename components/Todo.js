@@ -35,8 +35,10 @@ class Todo {
 
     const dueDate = new Date(this._data.date);
     if (!Number.isNaN(dueDate.getTime())) {
+      const dueDateText = `Due: ${this._formatDate(dueDate)}`;
       this._todoDate.dateTime = dueDate.toISOString().split("T")[0];
-      this._todoDate.textContent = `Due: ${this._formatDate(dueDate)}`;
+      this._todoDate.textContent = dueDateText;
+      this._todoDate.title = dueDateText;
     } else {
       this._todoDate.removeAttribute("datetime");
     }
