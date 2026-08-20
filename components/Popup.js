@@ -1,4 +1,5 @@
 const POPUP_CLOSE_SELECTOR = ".popup__close";
+const POPUP_CLOSE_EVENT = "popup:close";
 
 export default class Popup {
   constructor({ popupSelector }) {
@@ -34,7 +35,7 @@ export default class Popup {
     document.removeEventListener("keydown", this._handleEscapeClose);
     this._isOpen = false;
     this._popupElement.dispatchEvent(
-      new CustomEvent("popup:close", { bubbles: true })
+      new CustomEvent(POPUP_CLOSE_EVENT, { bubbles: true })
     );
   }
 
