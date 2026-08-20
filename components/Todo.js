@@ -8,6 +8,7 @@ const TODO_CHECKBOX_SELECTOR = ".todo__completed";
 const TODO_LABEL_SELECTOR = ".todo__label";
 const TODO_DATE_SELECTOR = ".todo__date";
 const TODO_DELETE_BUTTON_SELECTOR = ".todo__delete-btn";
+const TODO_NAME_SELECTOR = ".todo__name";
 
 class Todo {
   constructor(data, selector, handleCheck, handleDelete) {
@@ -99,7 +100,7 @@ class Todo {
       .querySelector(".todo")
       .cloneNode(true);
 
-    const todoNameEl = this._todoElement.querySelector(".todo__name");
+    const todoNameEl = this._todoElement.querySelector(TODO_NAME_SELECTOR);
 
     todoNameEl.textContent = this._data.name;
     this._generateCheckboxEl();
