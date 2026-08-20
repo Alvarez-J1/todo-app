@@ -6,6 +6,7 @@ const DATE_FORMAT_OPTIONS = {
 
 const TODO_CHECKBOX_SELECTOR = ".todo__completed";
 const TODO_LABEL_SELECTOR = ".todo__label";
+const TODO_DATE_SELECTOR = ".todo__date";
 
 class Todo {
   constructor(data, selector, handleCheck, handleDelete) {
@@ -38,7 +39,7 @@ class Todo {
   }
 
   _generateDates() {
-    this._todoDate = this._todoElement.querySelector(".todo__date");
+    this._todoDate = this._todoElement.querySelector(TODO_DATE_SELECTOR);
     if (!this._data.date) {
       this._todoDate.textContent = "";
       this._todoDate.removeAttribute("title");
