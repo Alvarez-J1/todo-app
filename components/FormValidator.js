@@ -51,16 +51,17 @@ class FormValidator {
     });
   }
 
+  _setButtonDisabled(isDisabled) {
+    this._buttonElement.classList.toggle(
+      this._inactiveButtonClass,
+      isDisabled
+    );
+    this._buttonElement.disabled = isDisabled;
+    this._buttonElement.setAttribute("aria-disabled", String(isDisabled));
+  }
+
   _toggleButtonState() {
-    if (this._hasInvalidInput()) {
-      this._buttonElement.classList.add(this._inactiveButtonClass);
-      this._buttonElement.disabled = true;
-      this._buttonElement.setAttribute("aria-disabled", "true");
-    } else {
-      this._buttonElement.classList.remove(this._inactiveButtonClass);
-      this._buttonElement.disabled = false;
-      this._buttonElement.setAttribute("aria-disabled", "false");
-    }
+    this._setButtonDisabled(this._hasInvalidInput());
   }
 
   _setEventListeners() {
