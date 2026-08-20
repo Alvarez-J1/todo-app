@@ -30,9 +30,9 @@ function parseTodoDate(dateValue) {
     return null;
   }
 
-  const date = new Date(dateValue);
-  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-  return date;
+  const dueDate = new Date(dateValue);
+  dueDate.setMinutes(dueDate.getMinutes() + dueDate.getTimezoneOffset());
+  return dueDate;
 }
 
 const todayDate = new Date();
