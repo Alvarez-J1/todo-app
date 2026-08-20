@@ -9,6 +9,7 @@ const TODO_LABEL_SELECTOR = ".todo__label";
 const TODO_DATE_SELECTOR = ".todo__date";
 const TODO_DELETE_BUTTON_SELECTOR = ".todo__delete-btn";
 const TODO_NAME_SELECTOR = ".todo__name";
+const TODO_TEMPLATE_ITEM_SELECTOR = ".todo";
 
 class Todo {
   constructor(data, selector, handleCheck, handleDelete) {
@@ -97,7 +98,7 @@ class Todo {
 
   getView() {
     this._todoElement = this._templateElement.content
-      .querySelector(".todo")
+      .querySelector(TODO_TEMPLATE_ITEM_SELECTOR)
       .cloneNode(true);
 
     const todoNameEl = this._todoElement.querySelector(TODO_NAME_SELECTOR);
