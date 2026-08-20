@@ -1,3 +1,5 @@
+const POPUP_CLOSE_SELECTOR = ".popup__close";
+
 export default class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
@@ -39,7 +41,7 @@ export default class Popup {
   setEventListeners() {
     this._popupElement.addEventListener("click", (evt) => {
       if (
-        evt.target.closest(".popup__close") ||
+        evt.target.closest(POPUP_CLOSE_SELECTOR) ||
         evt.target === this._popupElement
       ) {
         this.close();
