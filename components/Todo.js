@@ -5,6 +5,7 @@ const DATE_FORMAT_OPTIONS = {
 };
 
 const TODO_CHECKBOX_SELECTOR = ".todo__completed";
+const TODO_LABEL_SELECTOR = ".todo__label";
 
 class Todo {
   constructor(data, selector, handleCheck, handleDelete) {
@@ -23,7 +24,7 @@ class Todo {
     this._todoCheckboxEl = this._todoElement.querySelector(
       TODO_CHECKBOX_SELECTOR
     );
-    const todoLabel = this._todoElement.querySelector(".todo__label");
+    const todoLabel = this._todoElement.querySelector(TODO_LABEL_SELECTOR);
     const checkboxId = this._getCheckboxId();
 
     this._todoCheckboxEl.checked = this._completed;
