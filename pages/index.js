@@ -40,8 +40,7 @@ todoDateInput.min = getLocalDateString(todayDate);
 
 const generateTodo = (data) => {
   const todo = new Todo(data, todoTemplateSelector, handleCheck, handleDelete);
-  const todoElement = todo.getView();
-  return todoElement;
+  return todo.getView();
 };
 
 function handleCheck(completed) {
