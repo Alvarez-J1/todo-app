@@ -32,6 +32,10 @@ function parseTodoDate(dateValue) {
   }
 
   const dueDate = new Date(dateValue);
+  if (Number.isNaN(dueDate.getTime())) {
+    return null;
+  }
+
   dueDate.setMinutes(dueDate.getMinutes() + dueDate.getTimezoneOffset());
   return dueDate;
 }
