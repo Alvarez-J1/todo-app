@@ -1,5 +1,6 @@
 const POPUP_CLOSE_SELECTOR = ".popup__close";
 const POPUP_CLOSE_EVENT = "popup:close";
+const POPUP_VISIBLE_CLASS = "popup_visible";
 
 export default class Popup {
   constructor({ popupSelector }) {
@@ -19,7 +20,7 @@ export default class Popup {
       return;
     }
 
-    this._popupElement.classList.add("popup_visible");
+    this._popupElement.classList.add(POPUP_VISIBLE_CLASS);
     this._popupElement.setAttribute("aria-hidden", "false");
     document.addEventListener("keydown", this._handleEscapeClose);
     this._isOpen = true;
@@ -30,7 +31,7 @@ export default class Popup {
       return;
     }
 
-    this._popupElement.classList.remove("popup_visible");
+    this._popupElement.classList.remove(POPUP_VISIBLE_CLASS);
     this._popupElement.setAttribute("aria-hidden", "true");
     document.removeEventListener("keydown", this._handleEscapeClose);
     this._isOpen = false;
