@@ -89,12 +89,14 @@ const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 
 newTodoValidator.enableValidation();
 
-addTodoButton.addEventListener("click", () => {
+function openAddTodoPopup() {
   newTodoValidator.resetValidation();
   addTodoButton.setAttribute("aria-expanded", "true");
   addTodoPopup.open();
   addTodoForm.elements.name.focus();
-});
+}
+
+addTodoButton.addEventListener("click", openAddTodoPopup);
 
 addTodoPopupElement.addEventListener(popupCloseEvent, () => {
   addTodoButton.setAttribute("aria-expanded", "false");
