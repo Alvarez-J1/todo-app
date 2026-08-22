@@ -98,7 +98,9 @@ function openAddTodoPopup() {
 
 addTodoButton.addEventListener("click", openAddTodoPopup);
 
-addTodoPopupElement.addEventListener(popupCloseEvent, () => {
+function handleAddTodoPopupClose() {
   addTodoButton.setAttribute("aria-expanded", "false");
   addTodoButton.focus();
-});
+}
+
+addTodoPopupElement.addEventListener(popupCloseEvent, handleAddTodoPopupClose);
