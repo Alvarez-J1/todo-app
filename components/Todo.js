@@ -66,6 +66,10 @@ class Todo {
     return date.toLocaleString("en-US", DATE_FORMAT_OPTIONS);
   }
 
+  _getDateTimeValue(date) {
+    return date.toISOString().split("T")[0];
+  }
+
   _generateDeleteBtn() {
     this._todoDeleteBtn = this._todoElement.querySelector(
       TODO_DELETE_BUTTON_SELECTOR
