@@ -12,6 +12,7 @@ const counterSelector = ".counter__text";
 const todosListSelector = ".todos__list";
 const todoTemplateSelector = "#todo-template";
 const todoDateSelector = "#todo-date";
+const popupCloseEvent = "popup:close";
 
 const addTodoButton = document.querySelector(addButtonSelector);
 const addTodoPopupElement = document.querySelector(addPopupSelector);
@@ -95,7 +96,7 @@ addTodoButton.addEventListener("click", () => {
   addTodoForm.elements.name.focus();
 });
 
-addTodoPopupElement.addEventListener("popup:close", () => {
+addTodoPopupElement.addEventListener(popupCloseEvent, () => {
   addTodoButton.setAttribute("aria-expanded", "false");
   addTodoButton.focus();
 });
