@@ -1,3 +1,5 @@
+const ERROR_ID_SUFFIX = "-error";
+
 class FormValidator {
   constructor(settings, formEl) {
     this._inputSelector = settings.inputSelector;
@@ -9,7 +11,7 @@ class FormValidator {
   }
 
   _getErrorElement(inputElement) {
-    const errorElementId = `#${inputElement.id}-error`;
+    const errorElementId = `#${inputElement.id}${ERROR_ID_SUFFIX}`;
     return this._formEl.querySelector(errorElementId);
   }
 
