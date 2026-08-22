@@ -11,6 +11,7 @@ const TODO_DELETE_BUTTON_SELECTOR = ".todo__delete-btn";
 const TODO_NAME_SELECTOR = ".todo__name";
 const TODO_TEMPLATE_ITEM_SELECTOR = ".todo";
 const TODO_COMPLETED_CLASS = "todo_completed";
+const TODO_ID_PREFIX = "todo";
 
 class Todo {
   constructor(data, selector, handleCheck, handleDelete) {
@@ -22,7 +23,7 @@ class Todo {
   }
 
   _getCheckboxId() {
-    return `todo-${this._data.id}`;
+    return `${TODO_ID_PREFIX}-${this._data.id}`;
   }
 
   _generateCheckboxEl() {
