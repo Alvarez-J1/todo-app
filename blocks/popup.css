@@ -166,4 +166,8 @@
   .popup_visible {
     transition: none;
   }
+
+  .popup__close {
+    transition: none;
+  }
 }
