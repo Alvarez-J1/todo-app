@@ -1,6 +1,7 @@
 const POPUP_CLOSE_SELECTOR = ".popup__close";
 const POPUP_CLOSE_EVENT = "popup:close";
 const POPUP_VISIBLE_CLASS = "popup_visible";
+const ARIA_HIDDEN_ATTRIBUTE = "aria-hidden";
 
 export default class Popup {
   constructor({ popupSelector }) {
@@ -21,7 +22,7 @@ export default class Popup {
     }
 
     this._popupElement.classList.add(POPUP_VISIBLE_CLASS);
-    this._popupElement.setAttribute("aria-hidden", "false");
+    this._popupElement.setAttribute(ARIA_HIDDEN_ATTRIBUTE, "false");
     document.addEventListener("keydown", this._handleEscapeClose);
     this._isOpen = true;
   }
@@ -32,7 +33,7 @@ export default class Popup {
     }
 
     this._popupElement.classList.remove(POPUP_VISIBLE_CLASS);
-    this._popupElement.setAttribute("aria-hidden", "true");
+    this._popupElement.setAttribute(ARIA_HIDDEN_ATTRIBUTE, "true");
     document.removeEventListener("keydown", this._handleEscapeClose);
     this._isOpen = false;
     this._popupElement.dispatchEvent(
