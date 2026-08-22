@@ -178,4 +178,8 @@
   .popup__error {
     transition: none;
   }
+
+  .popup__button {
+    transition: none;
+  }
 }
