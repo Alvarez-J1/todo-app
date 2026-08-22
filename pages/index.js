@@ -73,9 +73,10 @@ const addTodoPopup = new PopupWithForm({
   popupSelector: addPopupSelector,
   handleFormSubmit: (values) => {
     const date = parseTodoDate(values.date);
+    const name = values.name.trim();
 
     const newTodo = {
-      name: values.name.trim(),
+      name,
       date,
       id: uuidv4(),
       completed: false,
