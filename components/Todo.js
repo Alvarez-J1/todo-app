@@ -10,6 +10,7 @@ const TODO_DATE_SELECTOR = ".todo__date";
 const TODO_DELETE_BUTTON_SELECTOR = ".todo__delete-btn";
 const TODO_NAME_SELECTOR = ".todo__name";
 const TODO_TEMPLATE_ITEM_SELECTOR = ".todo";
+const TODO_COMPLETED_CLASS = "todo_completed";
 
 class Todo {
   constructor(data, selector, handleCheck, handleDelete) {
@@ -32,7 +33,7 @@ class Todo {
     const checkboxId = this._getCheckboxId();
 
     this._todoCheckboxEl.checked = this._completed;
-    this._todoElement.classList.toggle("todo_completed", this._completed);
+    this._todoElement.classList.toggle(TODO_COMPLETED_CLASS, this._completed);
 
     this._todoCheckboxEl.id = checkboxId;
     this._todoCheckboxEl.name = checkboxId;
@@ -89,7 +90,7 @@ class Todo {
   _setCompletion = (completed) => {
     this._completed = completed;
     this._todoCheckboxEl.setAttribute("aria-checked", String(this._completed));
-    this._todoElement.classList.toggle("todo_completed", this._completed);
+    this._todoElement.classList.toggle(TODO_COMPLETED_CLASS, this._completed);
   };
 
   _remove = () => {
