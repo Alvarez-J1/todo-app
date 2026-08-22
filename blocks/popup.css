@@ -174,4 +174,8 @@
   .popup__input {
     transition: none;
   }
+
+  .popup__error {
+    transition: none;
+  }
 }
