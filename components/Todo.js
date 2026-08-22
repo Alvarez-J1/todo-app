@@ -37,7 +37,6 @@ class Todo {
 
     this._todoCheckboxEl.id = checkboxId;
     this._todoCheckboxEl.name = checkboxId;
-    this._todoCheckboxEl.setAttribute("aria-checked", String(this._completed));
     this._todoCheckboxEl.setAttribute("aria-label", this._data.name);
     todoLabel.setAttribute("for", checkboxId);
   }
@@ -89,7 +88,6 @@ class Todo {
 
   _setCompletion = (completed) => {
     this._completed = completed;
-    this._todoCheckboxEl.setAttribute("aria-checked", String(this._completed));
     this._todoElement.classList.toggle(TODO_COMPLETED_CLASS, this._completed);
   };
 
