@@ -1,5 +1,6 @@
 const ERROR_ID_SUFFIX = "-error";
 const ARIA_INVALID_ATTRIBUTE = "aria-invalid";
+const ARIA_DISABLED_ATTRIBUTE = "aria-disabled";
 
 class FormValidator {
   constructor(settings, formEl) {
@@ -60,7 +61,10 @@ class FormValidator {
       isDisabled
     );
     this._buttonElement.disabled = isDisabled;
-    this._buttonElement.setAttribute("aria-disabled", String(isDisabled));
+    this._buttonElement.setAttribute(
+      ARIA_DISABLED_ATTRIBUTE,
+      String(isDisabled)
+    );
   }
 
   _toggleButtonState() {
