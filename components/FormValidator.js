@@ -71,6 +71,11 @@ class FormValidator {
     this._toggleButtonState();
   }
 
+  _handleSubmit(evt) {
+    evt.preventDefault();
+    this.resetValidation();
+  }
+
   _setEventListeners() {
     this._inputList = Array.from(
       this._formEl.querySelectorAll(this._inputSelector)
@@ -98,10 +103,7 @@ class FormValidator {
   }
 
   enableValidation() {
-    this._formEl.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this.resetValidation();
-    });
+    this._formEl.addEventListener("submit", (evt) => this._handleSubmit(evt));
     this._setEventListeners();
   }
 }
