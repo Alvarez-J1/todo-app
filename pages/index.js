@@ -20,7 +20,7 @@ const todoDateInput = document.querySelector(todoDateSelector);
 
 const todoCounter = new TodoCounter(initialTodos, counterSelector);
 
-function getLocalDateString(date) {
+function formatDateForDateInput(date) {
   const localDate = new Date(date);
   localDate.setMinutes(localDate.getMinutes() - localDate.getTimezoneOffset());
   return localDate.toISOString().split("T")[0];
@@ -41,7 +41,7 @@ function parseTodoDate(dateValue) {
 }
 
 const todayDate = new Date();
-todoDateInput.min = getLocalDateString(todayDate);
+todoDateInput.min = formatDateForDateInput(todayDate);
 
 const generateTodo = (data) => {
   const todo = new Todo(data, todoTemplateSelector, handleCheck, handleDelete);
