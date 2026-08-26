@@ -3,6 +3,10 @@ export default class Section {
     this._items = [...items];
     this._renderer = renderer;
     this._container = document.querySelector(containerSelector);
+
+    if (!this._container) {
+      throw new Error(`Section container not found: ${containerSelector}`);
+    }
   }
   renderItems() {
     this._items.forEach((item) => this.renderItem(item));
