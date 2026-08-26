@@ -81,7 +81,7 @@ const addTodoPopup = new PopupWithForm({
       id: uuidv4(),
       completed: false,
     };
-    section.renderer(newTodo);
+    section.renderItem(newTodo);
     todoCounter.updateTotal(true);
   },
 });
