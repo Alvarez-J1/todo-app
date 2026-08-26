@@ -30,6 +30,10 @@ class Todo {
     return `${TODO_ID_PREFIX}-${this._data.id}`;
   }
 
+  _getTodoName() {
+    return this._data.name;
+  }
+
   _generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(
       TODO_CHECKBOX_SELECTOR
@@ -42,7 +46,7 @@ class Todo {
 
     this._todoCheckboxEl.id = checkboxId;
     this._todoCheckboxEl.name = checkboxId;
-    this._todoCheckboxEl.setAttribute("aria-label", this._data.name);
+    this._todoCheckboxEl.setAttribute("aria-label", this._getTodoName());
     todoLabel.setAttribute("for", checkboxId);
   }
 
@@ -78,7 +82,7 @@ class Todo {
     this._todoDeleteBtn = this._todoElement.querySelector(
       TODO_DELETE_BUTTON_SELECTOR
     );
-    const deleteLabel = `Delete ${this._data.name}`;
+    const deleteLabel = `Delete ${this._getTodoName()}`;
     this._todoDeleteBtn.setAttribute("aria-label", deleteLabel);
     this._todoDeleteBtn.title = deleteLabel;
   }
@@ -111,7 +115,7 @@ class Todo {
 
     const todoNameEl = this._todoElement.querySelector(TODO_NAME_SELECTOR);
 
-    todoNameEl.textContent = this._data.name;
+    todoNameEl.textContent = this._getTodoName();
     this._generateCheckboxEl();
     this._generateDeleteBtn();
     this._setEventListeners();
