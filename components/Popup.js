@@ -16,6 +16,12 @@ export default class Popup {
     }
   }
 
+  _dispatchCloseEvent() {
+    this._popupElement.dispatchEvent(
+      new CustomEvent(POPUP_CLOSE_EVENT, { bubbles: true })
+    );
+  }
+
   open() {
     if (this._isOpen) {
       return;
@@ -36,9 +42,7 @@ export default class Popup {
     this._popupElement.setAttribute(ARIA_HIDDEN_ATTRIBUTE, "true");
     document.removeEventListener("keydown", this._handleEscapeClose);
     this._isOpen = false;
-    this._popupElement.dispatchEvent(
-      new CustomEvent(POPUP_CLOSE_EVENT, { bubbles: true })
-    );
+    this._dispatchCloseEvent();
   }
 
   setEventListeners() {
