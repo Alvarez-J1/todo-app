@@ -40,8 +40,7 @@ function parseTodoDate(dateValue) {
   return dueDate;
 }
 
-const todayDate = new Date();
-todoDateInput.min = formatDateForDateInput(todayDate);
+todoDateInput.min = formatDateForDateInput(new Date());
 
 const generateTodo = (data) => {
   const todo = new Todo(data, todoTemplateSelector, handleCheck, handleDelete);
