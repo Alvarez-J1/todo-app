@@ -34,6 +34,10 @@ class Todo {
     return this._data.name;
   }
 
+  _getDeleteLabel() {
+    return `Delete ${this._getTodoName()}`;
+  }
+
   _generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(
       TODO_CHECKBOX_SELECTOR
@@ -82,7 +86,7 @@ class Todo {
     this._todoDeleteBtn = this._todoElement.querySelector(
       TODO_DELETE_BUTTON_SELECTOR
     );
-    const deleteLabel = `Delete ${this._getTodoName()}`;
+    const deleteLabel = this._getDeleteLabel();
     this._todoDeleteBtn.setAttribute("aria-label", deleteLabel);
     this._todoDeleteBtn.title = deleteLabel;
   }
