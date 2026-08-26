@@ -20,6 +20,10 @@ class Todo {
     this._templateElement = document.querySelector(selector);
     this._handleCheck = handleCheck;
     this._handleDelete = handleDelete;
+
+    if (!this._templateElement) {
+      throw new Error(`Todo template not found: ${selector}`);
+    }
   }
 
   _getCheckboxId() {
