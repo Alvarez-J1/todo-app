@@ -26,6 +26,17 @@ export default class Popup {
     this._popupElement.setAttribute(ARIA_HIDDEN_ATTRIBUTE, String(isHidden));
   }
 
+  _isCloseClick(evt) {
+    if (!(evt.target instanceof Element)) {
+      return false;
+    }
+
+    return (
+      evt.target.closest(POPUP_CLOSE_SELECTOR) ||
+      evt.target === this._popupElement
+    );
+  }
+
   open() {
     if (this._isOpen) {
       return;
@@ -51,14 +62,7 @@ export default class Popup {
 
   setEventListeners() {
     this._popupElement.addEventListener("click", (evt) => {
-      if (!(evt.target instanceof Element)) {
-        return;
-      }
-
-      if (
-        evt.target.closest(POPUP_CLOSE_SELECTOR) ||
-        evt.target === this._popupElement
-      ) {
+      if (this._isCloseClick(evt)) {
         this.close();
       }
     });
