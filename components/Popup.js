@@ -22,13 +22,17 @@ export default class Popup {
     );
   }
 
+  _setHiddenState(isHidden) {
+    this._popupElement.setAttribute(ARIA_HIDDEN_ATTRIBUTE, String(isHidden));
+  }
+
   open() {
     if (this._isOpen) {
       return;
     }
 
     this._popupElement.classList.add(POPUP_VISIBLE_CLASS);
-    this._popupElement.setAttribute(ARIA_HIDDEN_ATTRIBUTE, "false");
+    this._setHiddenState(false);
     document.addEventListener("keydown", this._handleEscapeClose);
     this._isOpen = true;
   }
@@ -39,7 +43,7 @@ export default class Popup {
     }
 
     this._popupElement.classList.remove(POPUP_VISIBLE_CLASS);
-    this._popupElement.setAttribute(ARIA_HIDDEN_ATTRIBUTE, "true");
+    this._setHiddenState(true);
     document.removeEventListener("keydown", this._handleEscapeClose);
     this._isOpen = false;
     this._dispatchCloseEvent();
