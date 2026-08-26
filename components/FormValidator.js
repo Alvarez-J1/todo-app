@@ -1,4 +1,5 @@
 const ERROR_ID_SUFFIX = "-error";
+const ARIA_INVALID_ATTRIBUTE = "aria-invalid";
 
 class FormValidator {
   constructor(settings, formEl) {
@@ -22,7 +23,7 @@ class FormValidator {
     }
 
     inputElement.classList.add(this._inputErrorClass);
-    inputElement.setAttribute("aria-invalid", "true");
+    inputElement.setAttribute(ARIA_INVALID_ATTRIBUTE, "true");
     errorElement.textContent = errorMessage;
     errorElement.classList.add(this._errorClass);
   }
@@ -30,7 +31,7 @@ class FormValidator {
   _hideInputError(inputElement) {
     const errorElement = this._getErrorElement(inputElement);
     inputElement.classList.remove(this._inputErrorClass);
-    inputElement.removeAttribute("aria-invalid");
+    inputElement.removeAttribute(ARIA_INVALID_ATTRIBUTE);
     if (!errorElement) {
       return;
     }
