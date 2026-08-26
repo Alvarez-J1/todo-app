@@ -57,8 +57,7 @@ class Todo {
   _generateDates() {
     this._todoDate = this._todoElement.querySelector(TODO_DATE_SELECTOR);
     if (!this._data.date) {
-      this._todoDate.textContent = "";
-      this._todoDate.removeAttribute("title");
+      this._clearDueDate();
       return;
     }
 
@@ -69,9 +68,14 @@ class Todo {
       this._todoDate.textContent = dueDateText;
       this._todoDate.title = dueDateText;
     } else {
-      this._todoDate.removeAttribute("datetime");
-      this._todoDate.removeAttribute("title");
+      this._clearDueDate();
     }
+  }
+
+  _clearDueDate() {
+    this._todoDate.textContent = "";
+    this._todoDate.removeAttribute("datetime");
+    this._todoDate.removeAttribute("title");
   }
 
   _formatDate(date) {
