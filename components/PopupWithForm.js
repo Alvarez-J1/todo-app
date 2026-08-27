@@ -13,9 +13,11 @@ export default class PopupWithForm extends Popup {
     }
 
     this._handleFormSubmit = handleFormSubmit;
-    this._inputList = Array.from(
-      this._popupForm.querySelectorAll(POPUP_INPUT_SELECTOR)
-    );
+    this._inputList = this._getInputList();
+  }
+
+  _getInputList() {
+    return Array.from(this._popupForm.querySelectorAll(POPUP_INPUT_SELECTOR));
   }
 
   _getInputValues() {
