@@ -10,6 +10,10 @@ class FormValidator {
     this._inputErrorClass = settings.inputErrorClass;
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._formEl = formEl;
+
+    if (!this._formEl) {
+      throw new Error("Form validator requires a form element.");
+    }
   }
 
   _getErrorElement(inputElement) {
