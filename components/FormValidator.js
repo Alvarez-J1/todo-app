@@ -98,6 +98,12 @@ class FormValidator {
 
     this._buttonElement = this._getButtonElement();
 
+    if (!this._buttonElement) {
+      throw new Error(
+        `Validator submit button not found: ${this._submitButtonSelector}`
+      );
+    }
+
     this._toggleButtonState();
 
     this._inputList.forEach((inputElement) => {
