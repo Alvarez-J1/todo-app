@@ -21,9 +21,9 @@ export default class TodoCounter {
 
   updateCompleted = (isCompleted) => {
     if (isCompleted) {
-      this._completed = Math.min(this._completed + 1, this._total);
+      this._completed = this._getBoundedCompletedCount(this._completed + 1);
     } else {
-      this._completed = Math.max(this._completed - 1, 0);
+      this._completed = this._getBoundedCompletedCount(this._completed - 1);
     }
     this._updateText();
   };
