@@ -27,6 +27,10 @@ export default class TodoCounter {
     return Math.max(count, 0);
   }
 
+  _syncCompletedToTotal() {
+    this._completed = this._getBoundedCompletedCount(this._completed);
+  }
+
   updateCompleted = (isCompleted) => {
     if (isCompleted) {
       this._completed = this._getBoundedCompletedCount(this._completed + 1);
@@ -40,7 +44,7 @@ export default class TodoCounter {
     this._total = this._getBoundedTotalCount(
       this._total + this._getTotalDelta(isAdded)
     );
-    this._completed = this._getBoundedCompletedCount(this._completed);
+    this._syncCompletedToTotal();
     this._updateText();
   };
 
