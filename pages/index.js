@@ -13,6 +13,8 @@ const todosListSelector = ".todos__list";
 const todoTemplateSelector = "#todo-template";
 const todoDateSelector = "#todo-date";
 const popupCloseEvent = "popup:close";
+const todoNameField = "name";
+const todoDateField = "date";
 
 const addTodoButton = document.querySelector(addButtonSelector);
 const addTodoPopupElement = document.querySelector(addPopupSelector);
@@ -71,8 +73,8 @@ section.renderItems();
 const addTodoPopup = new PopupWithForm({
   popupSelector: addPopupSelector,
   handleFormSubmit: (values) => {
-    const date = parseTodoDate(values.date);
-    const name = values.name.trim();
+    const date = parseTodoDate(values[todoDateField]);
+    const name = values[todoNameField].trim();
 
     const newTodo = {
       name,
@@ -97,7 +99,7 @@ function openAddTodoPopup() {
   newTodoValidator.resetValidation();
   addTodoButton.setAttribute("aria-expanded", "true");
   addTodoPopup.open();
-  addTodoForm.elements.name.focus();
+  addTodoForm.elements[todoNameField].focus();
 }
 
 addTodoButton.addEventListener("click", openAddTodoPopup);
