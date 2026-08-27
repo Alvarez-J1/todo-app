@@ -7,6 +7,11 @@ export default class PopupWithForm extends Popup {
   constructor({ popupSelector, handleFormSubmit }) {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(POPUP_FORM_SELECTOR);
+
+    if (!this._popupForm) {
+      throw new Error(`Popup form not found: ${POPUP_FORM_SELECTOR}`);
+    }
+
     this._handleFormSubmit = handleFormSubmit;
     this._inputList = Array.from(
       this._popupForm.querySelectorAll(POPUP_INPUT_SELECTOR)
