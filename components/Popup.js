@@ -6,6 +6,11 @@ const ARIA_HIDDEN_ATTRIBUTE = "aria-hidden";
 export default class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
+
+    if (!this._popupElement) {
+      throw new Error(`Popup element not found: ${popupSelector}`);
+    }
+
     this._handleEscapeClose = this._handleEscapeClose.bind(this);
     this._isOpen = false;
   }
