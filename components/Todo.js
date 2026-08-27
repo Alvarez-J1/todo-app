@@ -13,6 +13,8 @@ const TODO_TEMPLATE_ITEM_SELECTOR = ".todo";
 const TODO_COMPLETED_CLASS = "todo_completed";
 const TODO_ID_PREFIX = "todo";
 const ARIA_LABEL_ATTRIBUTE = "aria-label";
+const DATETIME_ATTRIBUTE = "datetime";
+const TITLE_ATTRIBUTE = "title";
 
 class Todo {
   constructor(data, selector, handleCheck, handleDelete) {
@@ -68,9 +70,12 @@ class Todo {
     const dueDate = new Date(this._data.date);
     if (!Number.isNaN(dueDate.getTime())) {
       const dueDateText = `Due: ${this._formatDate(dueDate)}`;
-      this._todoDate.dateTime = this._getDateTimeValue(dueDate);
+      this._todoDate.setAttribute(
+        DATETIME_ATTRIBUTE,
+        this._getDateTimeValue(dueDate)
+      );
       this._todoDate.textContent = dueDateText;
-      this._todoDate.title = dueDateText;
+      this._todoDate.setAttribute(TITLE_ATTRIBUTE, dueDateText);
     } else {
       this._clearDueDate();
     }
@@ -78,8 +83,8 @@ class Todo {
 
   _clearDueDate() {
     this._todoDate.textContent = "";
-    this._todoDate.removeAttribute("datetime");
-    this._todoDate.removeAttribute("title");
+    this._todoDate.removeAttribute(DATETIME_ATTRIBUTE);
+    this._todoDate.removeAttribute(TITLE_ATTRIBUTE);
   }
 
   _formatDate(date) {
