@@ -15,6 +15,10 @@ export default class TodoCounter {
     return todos.filter((todo) => Boolean(todo.completed)).length;
   }
 
+  _getBoundedCompletedCount(count) {
+    return Math.min(Math.max(count, 0), this._total);
+  }
+
   updateCompleted = (isCompleted) => {
     if (isCompleted) {
       this._completed = Math.min(this._completed + 1, this._total);
@@ -30,7 +34,7 @@ export default class TodoCounter {
     } else {
       this._total = Math.max(this._total - 1, 0);
     }
-    this._completed = Math.min(this._completed, this._total);
+    this._completed = this._getBoundedCompletedCount(this._completed);
     this._updateText();
   };
 
