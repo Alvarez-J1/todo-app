@@ -30,6 +30,10 @@ class FormValidator {
     inputElement.removeAttribute(ARIA_INVALID_ATTRIBUTE);
   }
 
+  _setErrorText(errorElement, message) {
+    errorElement.textContent = message;
+  }
+
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._getErrorElement(inputElement);
     if (!errorElement) {
@@ -38,7 +42,7 @@ class FormValidator {
 
     inputElement.classList.add(this._inputErrorClass);
     this._setInputInvalid(inputElement, true);
-    errorElement.textContent = errorMessage;
+    this._setErrorText(errorElement, errorMessage);
     errorElement.classList.add(this._errorClass);
   }
 
@@ -51,7 +55,7 @@ class FormValidator {
     }
 
     errorElement.classList.remove(this._errorClass);
-    errorElement.textContent = "";
+    this._setErrorText(errorElement, "");
   }
 
   _checkInputValidity(inputElement) {
