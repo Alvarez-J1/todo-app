@@ -12,6 +12,7 @@ const TODO_NAME_SELECTOR = ".todo__name";
 const TODO_TEMPLATE_ITEM_SELECTOR = ".todo";
 const TODO_COMPLETED_CLASS = "todo_completed";
 const TODO_ID_PREFIX = "todo";
+const ARIA_LABEL_ATTRIBUTE = "aria-label";
 
 class Todo {
   constructor(data, selector, handleCheck, handleDelete) {
@@ -50,7 +51,10 @@ class Todo {
 
     this._todoCheckboxEl.id = checkboxId;
     this._todoCheckboxEl.name = checkboxId;
-    this._todoCheckboxEl.setAttribute("aria-label", this._getTodoName());
+    this._todoCheckboxEl.setAttribute(
+      ARIA_LABEL_ATTRIBUTE,
+      this._getTodoName()
+    );
     todoLabel.setAttribute("for", checkboxId);
   }
 
@@ -91,7 +95,7 @@ class Todo {
       TODO_DELETE_BUTTON_SELECTOR
     );
     const deleteLabel = this._getDeleteLabel();
-    this._todoDeleteBtn.setAttribute("aria-label", deleteLabel);
+    this._todoDeleteBtn.setAttribute(ARIA_LABEL_ATTRIBUTE, deleteLabel);
     this._todoDeleteBtn.title = deleteLabel;
   }
 
