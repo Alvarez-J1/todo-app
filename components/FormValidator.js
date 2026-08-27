@@ -34,6 +34,10 @@ class FormValidator {
     errorElement.textContent = message;
   }
 
+  _setErrorVisible(errorElement, isVisible) {
+    errorElement.classList.toggle(this._errorClass, isVisible);
+  }
+
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._getErrorElement(inputElement);
     if (!errorElement) {
@@ -43,7 +47,7 @@ class FormValidator {
     inputElement.classList.add(this._inputErrorClass);
     this._setInputInvalid(inputElement, true);
     this._setErrorText(errorElement, errorMessage);
-    errorElement.classList.add(this._errorClass);
+    this._setErrorVisible(errorElement, true);
   }
 
   _hideInputError(inputElement) {
@@ -54,7 +58,7 @@ class FormValidator {
       return;
     }
 
-    errorElement.classList.remove(this._errorClass);
+    this._setErrorVisible(errorElement, false);
     this._setErrorText(errorElement, "");
   }
 
