@@ -6,9 +6,13 @@ export default class TodoCounter {
       throw new Error(`Todo counter element not found: ${selector}`);
     }
 
-    this._completed = todos.filter((todo) => Boolean(todo.completed)).length;
+    this._completed = this._getCompletedCount(todos);
     this._total = todos.length;
     this._updateText();
+  }
+
+  _getCompletedCount(todos) {
+    return todos.filter((todo) => Boolean(todo.completed)).length;
   }
 
   updateCompleted = (isCompleted) => {
