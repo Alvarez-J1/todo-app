@@ -21,6 +21,15 @@ class FormValidator {
     return this._formEl.querySelector(errorElementId);
   }
 
+  _setInputInvalid(inputElement, isInvalid) {
+    if (isInvalid) {
+      inputElement.setAttribute(ARIA_INVALID_ATTRIBUTE, "true");
+      return;
+    }
+
+    inputElement.removeAttribute(ARIA_INVALID_ATTRIBUTE);
+  }
+
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._getErrorElement(inputElement);
     if (!errorElement) {
@@ -28,7 +37,7 @@ class FormValidator {
     }
 
     inputElement.classList.add(this._inputErrorClass);
-    inputElement.setAttribute(ARIA_INVALID_ATTRIBUTE, "true");
+    this._setInputInvalid(inputElement, true);
     errorElement.textContent = errorMessage;
     errorElement.classList.add(this._errorClass);
   }
@@ -36,7 +45,7 @@ class FormValidator {
   _hideInputError(inputElement) {
     const errorElement = this._getErrorElement(inputElement);
     inputElement.classList.remove(this._inputErrorClass);
-    inputElement.removeAttribute(ARIA_INVALID_ATTRIBUTE);
+    this._setInputInvalid(inputElement, false);
     if (!errorElement) {
       return;
     }
