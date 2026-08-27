@@ -85,10 +85,12 @@ class FormValidator {
     this.resetValidation();
   }
 
+  _getInputList() {
+    return Array.from(this._formEl.querySelectorAll(this._inputSelector));
+  }
+
   _setEventListeners() {
-    this._inputList = Array.from(
-      this._formEl.querySelectorAll(this._inputSelector)
-    );
+    this._inputList = this._getInputList();
 
     this._buttonElement = this._formEl.querySelector(
       this._submitButtonSelector
