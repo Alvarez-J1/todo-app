@@ -1,6 +1,11 @@
 export default class TodoCounter {
   constructor(todos, selector) {
     this._element = document.querySelector(selector);
+
+    if (!this._element) {
+      throw new Error(`Todo counter element not found: ${selector}`);
+    }
+
     this._completed = todos.filter((todo) => Boolean(todo.completed)).length;
     this._total = todos.length;
     this._updateText();
