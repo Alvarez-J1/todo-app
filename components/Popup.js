@@ -2,6 +2,7 @@ const POPUP_CLOSE_SELECTOR = ".popup__close";
 const POPUP_CLOSE_EVENT = "popup:close";
 const POPUP_VISIBLE_CLASS = "popup_visible";
 const ARIA_HIDDEN_ATTRIBUTE = "aria-hidden";
+const ESCAPE_KEY = "Escape";
 
 export default class Popup {
   constructor({ popupSelector }) {
@@ -16,7 +17,7 @@ export default class Popup {
   }
 
   _handleEscapeClose(evt) {
-    if (evt.key === "Escape") {
+    if (evt.key === ESCAPE_KEY) {
       this.close();
     }
   }
