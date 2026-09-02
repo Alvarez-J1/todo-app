@@ -1,6 +1,7 @@
 const ERROR_ID_SUFFIX = "-error";
 const ARIA_INVALID_ATTRIBUTE = "aria-invalid";
 const ARIA_DISABLED_ATTRIBUTE = "aria-disabled";
+const EMPTY_ERROR_MESSAGE = "";
 
 class FormValidator {
   constructor(settings, formEl) {
@@ -63,7 +64,7 @@ class FormValidator {
     }
 
     this._setErrorVisible(errorElement, false);
-    this._setErrorText(errorElement, "");
+    this._setErrorText(errorElement, EMPTY_ERROR_MESSAGE);
   }
 
   _checkInputValidity(inputElement) {
