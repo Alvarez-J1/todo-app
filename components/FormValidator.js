@@ -30,6 +30,10 @@ class FormValidator {
     inputElement.removeAttribute(ARIA_INVALID_ATTRIBUTE);
   }
 
+  _setInputErrorVisible(inputElement, isVisible) {
+    inputElement.classList.toggle(this._inputErrorClass, isVisible);
+  }
+
   _setErrorText(errorElement, message) {
     errorElement.textContent = message;
   }
@@ -44,7 +48,7 @@ class FormValidator {
       return;
     }
 
-    inputElement.classList.add(this._inputErrorClass);
+    this._setInputErrorVisible(inputElement, true);
     this._setInputInvalid(inputElement, true);
     this._setErrorText(errorElement, errorMessage);
     this._setErrorVisible(errorElement, true);
@@ -52,7 +56,7 @@ class FormValidator {
 
   _hideInputError(inputElement) {
     const errorElement = this._getErrorElement(inputElement);
-    inputElement.classList.remove(this._inputErrorClass);
+    this._setInputErrorVisible(inputElement, false);
     this._setInputInvalid(inputElement, false);
     if (!errorElement) {
       return;
