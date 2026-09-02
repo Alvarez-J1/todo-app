@@ -1,3 +1,5 @@
+const MIN_TODO_COUNT = 0;
+
 export default class TodoCounter {
   constructor(todos, selector) {
     this._element = document.querySelector(selector);
@@ -16,7 +18,7 @@ export default class TodoCounter {
   }
 
   _getBoundedCompletedCount(count) {
-    return Math.min(Math.max(count, 0), this._total);
+    return Math.min(Math.max(count, MIN_TODO_COUNT), this._total);
   }
 
   _getCompletedDelta(isCompleted) {
@@ -28,7 +30,7 @@ export default class TodoCounter {
   }
 
   _getBoundedTotalCount(count) {
-    return Math.max(count, 0);
+    return Math.max(count, MIN_TODO_COUNT);
   }
 
   _syncCompletedToTotal() {
