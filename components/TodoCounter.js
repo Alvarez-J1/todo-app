@@ -1,4 +1,6 @@
 const MIN_TODO_COUNT = 0;
+const COUNTER_TEXT_PREFIX = "Showing";
+const COUNTER_TEXT_SUFFIX = "completed";
 
 export default class TodoCounter {
   constructor(todos, selector) {
@@ -63,7 +65,7 @@ export default class TodoCounter {
   };
 
   _getCounterText() {
-    return `Showing ${this._completed} out of ${this._total} completed`;
+    return `${COUNTER_TEXT_PREFIX} ${this._completed} out of ${this._total} ${COUNTER_TEXT_SUFFIX}`;
   }
 
   _setCounterText(text) {
