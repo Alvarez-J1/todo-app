@@ -8,8 +8,10 @@ export default class TodoCounter {
       throw new Error(`Todo counter element not found: ${selector}`);
     }
 
-    this._completed = this._getCompletedCount(todos);
     this._total = this._getTotalCount(todos);
+    this._completed = this._getBoundedCompletedCount(
+      this._getCompletedCount(todos)
+    );
     this._updateText();
   }
 
