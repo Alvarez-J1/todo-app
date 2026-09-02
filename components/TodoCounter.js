@@ -9,8 +9,12 @@ export default class TodoCounter {
     }
 
     this._completed = this._getCompletedCount(todos);
-    this._total = todos.length;
+    this._total = this._getTotalCount(todos);
     this._updateText();
+  }
+
+  _getTotalCount(todos) {
+    return todos.length;
   }
 
   _getCompletedCount(todos) {
