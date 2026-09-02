@@ -14,7 +14,11 @@ export default class TodoCounter {
   }
 
   _getCompletedCount(todos) {
-    return todos.filter((todo) => Boolean(todo.completed)).length;
+    return todos.filter((todo) => this._isTodoCompleted(todo)).length;
+  }
+
+  _isTodoCompleted(todo) {
+    return Boolean(todo.completed);
   }
 
   _getBoundedCompletedCount(count) {
