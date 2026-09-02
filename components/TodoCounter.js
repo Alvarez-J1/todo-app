@@ -52,11 +52,11 @@ export default class TodoCounter {
     this._updateText();
   };
 
-  _getText() {
+  _getCounterText() {
     return `Showing ${this._completed} out of ${this._total} completed`;
   }
 
   _updateText() {
-    this._element.textContent = this._getText();
+    this._element.textContent = this._getCounterText();
   }
 }
