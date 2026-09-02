@@ -19,6 +19,10 @@ export default class TodoCounter {
     return Math.min(Math.max(count, 0), this._total);
   }
 
+  _getCompletedDelta(isCompleted) {
+    return isCompleted ? 1 : -1;
+  }
+
   _getTotalDelta(isAdded) {
     return isAdded ? 1 : -1;
   }
@@ -32,11 +36,9 @@ export default class TodoCounter {
   }
 
   updateCompleted = (isCompleted) => {
-    if (isCompleted) {
-      this._completed = this._getBoundedCompletedCount(this._completed + 1);
-    } else {
-      this._completed = this._getBoundedCompletedCount(this._completed - 1);
-    }
+    this._completed = this._getBoundedCompletedCount(
+      this._completed + this._getCompletedDelta(isCompleted)
+    );
     this._updateText();
   };
 
