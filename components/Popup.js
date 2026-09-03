@@ -67,6 +67,10 @@ export default class Popup {
     return this._isOpen;
   }
 
+  _setOpenState(isOpen) {
+    this._isOpen = isOpen;
+  }
+
   open() {
     if (this._isPopupOpen()) {
       return;
@@ -74,7 +78,7 @@ export default class Popup {
 
     this._showPopupElement();
     this._addEscapeCloseListener();
-    this._isOpen = true;
+    this._setOpenState(true);
   }
 
   close() {
@@ -84,7 +88,7 @@ export default class Popup {
 
     this._hidePopupElement();
     this._removeEscapeCloseListener();
-    this._isOpen = false;
+    this._setOpenState(false);
     this._dispatchCloseEvent();
   }
 
