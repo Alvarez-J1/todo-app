@@ -53,13 +53,17 @@ export default class Popup {
     document.removeEventListener(KEYDOWN_EVENT, this._handleEscapeClose);
   }
 
+  _showPopupElement() {
+    this._popupElement.classList.add(POPUP_VISIBLE_CLASS);
+    this._setHiddenState(false);
+  }
+
   open() {
     if (this._isOpen) {
       return;
     }
 
-    this._popupElement.classList.add(POPUP_VISIBLE_CLASS);
-    this._setHiddenState(false);
+    this._showPopupElement();
     this._addEscapeCloseListener();
     this._isOpen = true;
   }
