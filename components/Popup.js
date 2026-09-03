@@ -45,6 +45,10 @@ export default class Popup {
     );
   }
 
+  _addEscapeCloseListener() {
+    document.addEventListener(KEYDOWN_EVENT, this._handleEscapeClose);
+  }
+
   open() {
     if (this._isOpen) {
       return;
@@ -52,7 +56,7 @@ export default class Popup {
 
     this._popupElement.classList.add(POPUP_VISIBLE_CLASS);
     this._setHiddenState(false);
-    document.addEventListener(KEYDOWN_EVENT, this._handleEscapeClose);
+    this._addEscapeCloseListener();
     this._isOpen = true;
   }
 
