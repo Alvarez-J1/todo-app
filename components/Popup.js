@@ -38,13 +38,17 @@ export default class Popup {
     return target === this._popupElement;
   }
 
+  _isCloseButtonClick(target) {
+    return Boolean(target.closest(POPUP_CLOSE_SELECTOR));
+  }
+
   _isCloseClick(evt) {
     if (!(evt.target instanceof Element)) {
       return false;
     }
 
     return (
-      evt.target.closest(POPUP_CLOSE_SELECTOR) ||
+      this._isCloseButtonClick(evt.target) ||
       this._isOverlayClick(evt.target)
     );
   }
