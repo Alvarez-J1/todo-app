@@ -78,7 +78,7 @@ export default class Popup {
   }
 
   close() {
-    if (!this._isOpen) {
+    if (!this._isPopupOpen()) {
       return;
     }
 
