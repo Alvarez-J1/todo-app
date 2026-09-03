@@ -50,6 +50,10 @@ class FormValidator {
     return inputElement.validity.valid;
   }
 
+  _getInputErrorMessage(inputElement) {
+    return inputElement.validationMessage;
+  }
+
   _setButtonAriaDisabled(isDisabled) {
     this._buttonElement.setAttribute(
       ARIA_DISABLED_ATTRIBUTE,
@@ -94,7 +98,10 @@ class FormValidator {
 
   _checkInputValidity(inputElement) {
     if (!this._isInputValid(inputElement)) {
-      this._showInputError(inputElement, inputElement.validationMessage);
+      this._showInputError(
+        inputElement,
+        this._getInputErrorMessage(inputElement)
+      );
     } else {
       this._hideInputError(inputElement);
     }
