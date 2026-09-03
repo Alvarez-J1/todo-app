@@ -46,6 +46,10 @@ class FormValidator {
     errorElement.classList.toggle(this._errorClass, isVisible);
   }
 
+  _isInputValid(inputElement) {
+    return inputElement.validity.valid;
+  }
+
   _setButtonAriaDisabled(isDisabled) {
     this._buttonElement.setAttribute(
       ARIA_DISABLED_ATTRIBUTE,
@@ -89,7 +93,7 @@ class FormValidator {
   }
 
   _checkInputValidity(inputElement) {
-    if (!inputElement.validity.valid) {
+    if (!this._isInputValid(inputElement)) {
       this._showInputError(inputElement, inputElement.validationMessage);
     } else {
       this._hideInputError(inputElement);
@@ -98,7 +102,7 @@ class FormValidator {
 
   _hasInvalidInput() {
     return this._inputList.some((inputElement) => {
-      return !inputElement.validity.valid;
+      return !this._isInputValid(inputElement);
     });
   }
 
