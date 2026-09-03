@@ -2,6 +2,8 @@ const ERROR_ID_SUFFIX = "-error";
 const ARIA_INVALID_ATTRIBUTE = "aria-invalid";
 const ARIA_DISABLED_ATTRIBUTE = "aria-disabled";
 const EMPTY_ERROR_MESSAGE = "";
+const INPUT_EVENT = "input";
+const SUBMIT_EVENT = "submit";
 
 class FormValidator {
   constructor(settings, formEl) {
@@ -129,7 +131,7 @@ class FormValidator {
     this._toggleButtonState();
 
     this._inputList.forEach((inputElement) => {
-      inputElement.addEventListener("input", () => {
+      inputElement.addEventListener(INPUT_EVENT, () => {
         this._handleInput(inputElement);
       });
     });
@@ -144,7 +146,9 @@ class FormValidator {
   }
 
   enableValidation() {
-    this._formEl.addEventListener("submit", (evt) => this._handleSubmit(evt));
+    this._formEl.addEventListener(SUBMIT_EVENT, (evt) =>
+      this._handleSubmit(evt)
+    );
     this._setEventListeners();
   }
 }
