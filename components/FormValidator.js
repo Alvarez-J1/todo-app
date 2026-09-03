@@ -144,6 +144,10 @@ class FormValidator {
   _setEventListeners() {
     this._inputList = this._getInputList();
 
+    if (this._inputList.length === 0) {
+      throw new Error(`Validator inputs not found: ${this._inputSelector}`);
+    }
+
     this._buttonElement = this._getButtonElement();
 
     if (!this._buttonElement) {
