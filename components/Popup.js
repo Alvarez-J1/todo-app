@@ -63,8 +63,12 @@ export default class Popup {
     this._setHiddenState(true);
   }
 
+  _isPopupOpen() {
+    return this._isOpen;
+  }
+
   open() {
-    if (this._isOpen) {
+    if (this._isPopupOpen()) {
       return;
     }
 
