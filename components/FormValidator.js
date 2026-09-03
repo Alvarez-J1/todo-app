@@ -4,6 +4,7 @@ const ARIA_DISABLED_ATTRIBUTE = "aria-disabled";
 const EMPTY_ERROR_MESSAGE = "";
 const INPUT_EVENT = "input";
 const SUBMIT_EVENT = "submit";
+const ARIA_TRUE_VALUE = "true";
 
 class FormValidator {
   constructor(settings, formEl) {
@@ -26,7 +27,7 @@ class FormValidator {
 
   _setInputInvalid(inputElement, isInvalid) {
     if (isInvalid) {
-      inputElement.setAttribute(ARIA_INVALID_ATTRIBUTE, "true");
+      inputElement.setAttribute(ARIA_INVALID_ATTRIBUTE, ARIA_TRUE_VALUE);
       return;
     }
 
