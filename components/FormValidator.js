@@ -57,6 +57,13 @@ class FormValidator {
     this._buttonElement.disabled = isDisabled;
   }
 
+  _setButtonInactiveClass(isDisabled) {
+    this._buttonElement.classList.toggle(
+      this._inactiveButtonClass,
+      isDisabled
+    );
+  }
+
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._getErrorElement(inputElement);
     if (!errorElement) {
@@ -96,10 +103,7 @@ class FormValidator {
   }
 
   _setButtonDisabled(isDisabled) {
-    this._buttonElement.classList.toggle(
-      this._inactiveButtonClass,
-      isDisabled
-    );
+    this._setButtonInactiveClass(isDisabled);
     this._setButtonNativeDisabled(isDisabled);
     this._setButtonAriaDisabled(isDisabled);
   }
