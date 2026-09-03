@@ -58,6 +58,11 @@ export default class Popup {
     this._setHiddenState(false);
   }
 
+  _hidePopupElement() {
+    this._popupElement.classList.remove(POPUP_VISIBLE_CLASS);
+    this._setHiddenState(true);
+  }
+
   open() {
     if (this._isOpen) {
       return;
@@ -73,8 +78,7 @@ export default class Popup {
       return;
     }
 
-    this._popupElement.classList.remove(POPUP_VISIBLE_CLASS);
-    this._setHiddenState(true);
+    this._hidePopupElement();
     this._removeEscapeCloseListener();
     this._isOpen = false;
     this._dispatchCloseEvent();
