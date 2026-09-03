@@ -4,6 +4,7 @@ const POPUP_VISIBLE_CLASS = "popup_visible";
 const ARIA_HIDDEN_ATTRIBUTE = "aria-hidden";
 const ESCAPE_KEY = "Escape";
 const KEYDOWN_EVENT = "keydown";
+const CLICK_EVENT = "click";
 
 export default class Popup {
   constructor({ popupSelector }) {
@@ -68,7 +69,7 @@ export default class Popup {
   }
 
   setEventListeners() {
-    this._popupElement.addEventListener("click", (evt) => {
+    this._popupElement.addEventListener(CLICK_EVENT, (evt) => {
       if (this._isCloseClick(evt)) {
         this.close();
       }
