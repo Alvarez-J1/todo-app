@@ -49,6 +49,10 @@ export default class Popup {
     document.addEventListener(KEYDOWN_EVENT, this._handleEscapeClose);
   }
 
+  _removeEscapeCloseListener() {
+    document.removeEventListener(KEYDOWN_EVENT, this._handleEscapeClose);
+  }
+
   open() {
     if (this._isOpen) {
       return;
@@ -67,7 +71,7 @@ export default class Popup {
 
     this._popupElement.classList.remove(POPUP_VISIBLE_CLASS);
     this._setHiddenState(true);
-    document.removeEventListener(KEYDOWN_EVENT, this._handleEscapeClose);
+    this._removeEscapeCloseListener();
     this._isOpen = false;
     this._dispatchCloseEvent();
   }
