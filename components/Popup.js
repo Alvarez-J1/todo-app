@@ -34,6 +34,10 @@ export default class Popup {
     this._popupElement.setAttribute(ARIA_HIDDEN_ATTRIBUTE, String(isHidden));
   }
 
+  _isOverlayClick(target) {
+    return target === this._popupElement;
+  }
+
   _isCloseClick(evt) {
     if (!(evt.target instanceof Element)) {
       return false;
@@ -41,7 +45,7 @@ export default class Popup {
 
     return (
       evt.target.closest(POPUP_CLOSE_SELECTOR) ||
-      evt.target === this._popupElement
+      this._isOverlayClick(evt.target)
     );
   }
 
