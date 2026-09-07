@@ -72,6 +72,11 @@ class Todo {
 
   _generateDates() {
     this._todoDate = this._todoElement.querySelector(TODO_DATE_SELECTOR);
+
+    if (!this._todoDate) {
+      throw new Error(`Todo date element not found: ${TODO_DATE_SELECTOR}`);
+    }
+
     if (!this._data.date) {
       this._clearDueDate();
       return;
