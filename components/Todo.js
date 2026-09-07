@@ -148,9 +148,17 @@ class Todo {
   };
 
   getView() {
-    this._todoElement = this._templateElement.content
-      .querySelector(TODO_TEMPLATE_ITEM_SELECTOR)
-      .cloneNode(true);
+    const todoTemplateItem = this._templateElement.content.querySelector(
+      TODO_TEMPLATE_ITEM_SELECTOR
+    );
+
+    if (!todoTemplateItem) {
+      throw new Error(
+        `Todo template item not found: ${TODO_TEMPLATE_ITEM_SELECTOR}`
+      );
+    }
+
+    this._todoElement = todoTemplateItem.cloneNode(true);
 
     const todoNameEl = this._todoElement.querySelector(TODO_NAME_SELECTOR);
 
