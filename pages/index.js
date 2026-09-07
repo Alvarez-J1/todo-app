@@ -20,6 +20,10 @@ const addTodoButton = document.querySelector(addButtonSelector);
 const addTodoPopupElement = document.querySelector(addPopupSelector);
 const todoDateInput = document.querySelector(todoDateSelector);
 
+if (!addTodoButton) {
+  throw new Error(`Add todo button not found: ${addButtonSelector}`);
+}
+
 const todoCounter = new TodoCounter(initialTodos, counterSelector);
 
 function formatDateForDateInput(date) {
