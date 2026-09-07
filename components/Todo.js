@@ -83,17 +83,18 @@ class Todo {
     }
 
     const dueDate = new Date(this._data.date);
-    if (!Number.isNaN(dueDate.getTime())) {
-      const dueDateText = `Due: ${this._formatDate(dueDate)}`;
-      this._todoDate.setAttribute(
-        DATETIME_ATTRIBUTE,
-        this._getDateTimeValue(dueDate)
-      );
-      this._todoDate.textContent = dueDateText;
-      this._todoDate.setAttribute(TITLE_ATTRIBUTE, dueDateText);
-    } else {
+    if (Number.isNaN(dueDate.getTime())) {
       this._clearDueDate();
+      return;
     }
+
+    const dueDateText = `Due: ${this._formatDate(dueDate)}`;
+    this._todoDate.setAttribute(
+      DATETIME_ATTRIBUTE,
+      this._getDateTimeValue(dueDate)
+    );
+    this._todoDate.textContent = dueDateText;
+    this._todoDate.setAttribute(TITLE_ATTRIBUTE, dueDateText);
   }
 
   _clearDueDate() {
