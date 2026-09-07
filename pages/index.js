@@ -24,6 +24,10 @@ if (!addTodoButton) {
   throw new Error(`Add todo button not found: ${addButtonSelector}`);
 }
 
+if (!addTodoPopupElement) {
+  throw new Error(`Add todo popup not found: ${addPopupSelector}`);
+}
+
 const todoCounter = new TodoCounter(initialTodos, counterSelector);
 
 function formatDateForDateInput(date) {
