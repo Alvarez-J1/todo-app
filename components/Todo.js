@@ -15,6 +15,7 @@ const TODO_ID_PREFIX = "todo";
 const ARIA_LABEL_ATTRIBUTE = "aria-label";
 const DATETIME_ATTRIBUTE = "datetime";
 const FOR_ATTRIBUTE = "for";
+const NAME_ATTRIBUTE = "name";
 const TITLE_ATTRIBUTE = "title";
 
 class Todo {
@@ -53,7 +54,7 @@ class Todo {
     this._todoElement.classList.toggle(TODO_COMPLETED_CLASS, this._completed);
 
     this._todoCheckboxEl.id = checkboxId;
-    this._todoCheckboxEl.name = checkboxId;
+    this._todoCheckboxEl.setAttribute(NAME_ATTRIBUTE, checkboxId);
     this._todoCheckboxEl.setAttribute(
       ARIA_LABEL_ATTRIBUTE,
       this._getTodoName()
