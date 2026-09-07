@@ -142,6 +142,10 @@ class Todo {
 
     const todoNameEl = this._todoElement.querySelector(TODO_NAME_SELECTOR);
 
+    if (!todoNameEl) {
+      throw new Error(`Todo name element not found: ${TODO_NAME_SELECTOR}`);
+    }
+
     todoNameEl.textContent = this._getTodoName();
     this._generateCheckboxEl();
     this._generateDeleteBtn();
