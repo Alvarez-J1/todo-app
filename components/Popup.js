@@ -2,6 +2,8 @@ const POPUP_CLOSE_SELECTOR = ".popup__close";
 const POPUP_CLOSE_EVENT = "popup:close";
 const POPUP_VISIBLE_CLASS = "popup_visible";
 const ARIA_HIDDEN_ATTRIBUTE = "aria-hidden";
+const ARIA_FALSE_VALUE = "false";
+const ARIA_TRUE_VALUE = "true";
 const ESCAPE_KEY = "Escape";
 const KEYDOWN_EVENT = "keydown";
 const CLICK_EVENT = "click";
@@ -31,7 +33,10 @@ export default class Popup {
   }
 
   _setHiddenState(isHidden) {
-    this._popupElement.setAttribute(ARIA_HIDDEN_ATTRIBUTE, String(isHidden));
+    this._popupElement.setAttribute(
+      ARIA_HIDDEN_ATTRIBUTE,
+      isHidden ? ARIA_TRUE_VALUE : ARIA_FALSE_VALUE
+    );
   }
 
   _isOverlayClick(target) {
