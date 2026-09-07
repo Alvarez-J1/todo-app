@@ -4,6 +4,21 @@
   min-height: 100vh;
 }
 
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  padding: 8px 12px;
+  background-color: #fff;
+  color: #181818;
+  z-index: 2;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 .page__content {
   background-color: #fff;
   margin: 0 auto;
