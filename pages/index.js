@@ -108,10 +108,16 @@ const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 newTodoValidator.enableValidation();
 
 function openAddTodoPopup() {
+  const todoNameInput = addTodoForm.elements[todoNameField];
+
+  if (!todoNameInput) {
+    throw new Error(`Todo name input not found: ${todoNameField}`);
+  }
+
   newTodoValidator.resetValidation();
   addTodoButton.setAttribute("aria-expanded", "true");
   addTodoPopup.open();
-  addTodoForm.elements[todoNameField].focus();
+  todoNameInput.focus();
 }
 
 addTodoButton.addEventListener("click", openAddTodoPopup);
