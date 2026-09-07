@@ -28,6 +28,10 @@ if (!addTodoPopupElement) {
   throw new Error(`Add todo popup not found: ${addPopupSelector}`);
 }
 
+if (!todoDateInput) {
+  throw new Error(`Todo date input not found: ${todoDateSelector}`);
+}
+
 const todoCounter = new TodoCounter(initialTodos, counterSelector);
 
 function formatDateForDateInput(date) {
