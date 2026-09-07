@@ -14,6 +14,7 @@ const TODO_COMPLETED_CLASS = "todo_completed";
 const TODO_ID_PREFIX = "todo";
 const ARIA_LABEL_ATTRIBUTE = "aria-label";
 const DATETIME_ATTRIBUTE = "datetime";
+const FOR_ATTRIBUTE = "for";
 const TITLE_ATTRIBUTE = "title";
 
 class Todo {
@@ -57,7 +58,7 @@ class Todo {
       ARIA_LABEL_ATTRIBUTE,
       this._getTodoName()
     );
-    todoLabel.setAttribute("for", checkboxId);
+    todoLabel.setAttribute(FOR_ATTRIBUTE, checkboxId);
   }
 
   _generateDates() {
