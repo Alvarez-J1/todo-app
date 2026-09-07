@@ -50,6 +50,10 @@ class Todo {
     const todoLabel = this._todoElement.querySelector(TODO_LABEL_SELECTOR);
     const checkboxId = this._getCheckboxId();
 
+    if (!todoLabel) {
+      throw new Error(`Todo label not found: ${TODO_LABEL_SELECTOR}`);
+    }
+
     this._todoCheckboxEl.checked = this._completed;
     this._todoElement.classList.toggle(TODO_COMPLETED_CLASS, this._completed);
 
