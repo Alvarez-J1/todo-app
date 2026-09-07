@@ -123,7 +123,7 @@ class Todo {
 
     const deleteLabel = this._getDeleteLabel();
     this._todoDeleteBtn.setAttribute(ARIA_LABEL_ATTRIBUTE, deleteLabel);
-    this._todoDeleteBtn.title = deleteLabel;
+    this._todoDeleteBtn.setAttribute(TITLE_ATTRIBUTE, deleteLabel);
   }
 
   _setEventListeners() {
