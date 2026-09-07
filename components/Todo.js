@@ -114,6 +114,13 @@ class Todo {
     this._todoDeleteBtn = this._todoElement.querySelector(
       TODO_DELETE_BUTTON_SELECTOR
     );
+
+    if (!this._todoDeleteBtn) {
+      throw new Error(
+        `Todo delete button not found: ${TODO_DELETE_BUTTON_SELECTOR}`
+      );
+    }
+
     const deleteLabel = this._getDeleteLabel();
     this._todoDeleteBtn.setAttribute(ARIA_LABEL_ATTRIBUTE, deleteLabel);
     this._todoDeleteBtn.title = deleteLabel;
