@@ -1,5 +1,6 @@
 .button {
   background-color: #5877e7;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {
@@ -43,6 +44,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .button,
   .button_action_add {
     transition: none;
   }
