@@ -118,7 +118,7 @@
 }
 
 .popup__input:focus-visible {
-  outline: 3px solid #5877e7;
+  outline: 3px solid var(--popup-focus-color);
   outline-offset: 2px;
 }
 
