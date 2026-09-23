@@ -88,7 +88,7 @@
   font-size: 16px;
   line-height: 1.2;
   font-weight: 500;
-  color: #7d7d7d;
+  color: var(--popup-muted-color);
 }
 
 .popup__input {
