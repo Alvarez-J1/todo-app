@@ -12,7 +12,7 @@
 }
 
 .button:hover {
-  background-color: #4460c4;
+  background-color: var(--button-hover-color);
   cursor: pointer;
 }
 
