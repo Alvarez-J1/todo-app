@@ -1,4 +1,11 @@
 .popup {
+  --popup-overlay-color: rgba(0, 0, 0, 0.5);
+  --popup-surface-color: #fff;
+  --popup-text-color: #181818;
+  --popup-muted-color: #7d7d7d;
+  --popup-focus-color: #5877e7;
+  --popup-error-color: #ff0000;
+
   font-family: "Inter", Arial, sans-serif;
   display: flex;
   align-items: center;
