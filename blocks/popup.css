@@ -114,7 +114,7 @@
 }
 
 .popup__input:focus::placeholder {
-  color: #181818;
+  color: var(--popup-text-color);
 }
 
 .popup__input:focus-visible {
