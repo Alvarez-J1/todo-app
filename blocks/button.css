@@ -27,7 +27,7 @@
 
 .button_disabled {
   pointer-events: none;
-  background-color: #5877e74d;
+  background-color: var(--button-disabled-color);
   cursor: not-allowed;
 }
 
