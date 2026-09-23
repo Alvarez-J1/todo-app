@@ -1,4 +1,12 @@
 .button {
+  --button-color: #5877e7;
+  --button-hover-color: #4460c4;
+  --button-active-color: #2a45a3;
+  --button-disabled-color: #5877e74d;
+  --button-focus-color: #181818;
+}
+
+.button {
   background-color: #5877e7;
   transition: background-color 0.3s ease;
 }
