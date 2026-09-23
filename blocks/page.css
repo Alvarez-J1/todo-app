@@ -18,7 +18,7 @@
   transform: translateY(-100%);
   padding: 8px 12px;
   background-color: var(--color-surface);
-  color: #181818;
+  color: var(--color-text);
   z-index: 2;
 }
 
