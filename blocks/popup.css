@@ -31,7 +31,7 @@
 .popup__content {
   max-width: 510px;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--popup-surface-color);
   border-radius: 10px;
   position: relative;
   box-sizing: border-box;
