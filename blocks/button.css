@@ -7,7 +7,7 @@
 }
 
 .button {
-  background-color: #5877e7;
+  background-color: var(--button-color);
   transition: background-color 0.3s ease;
 }
 
