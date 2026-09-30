@@ -41,13 +41,17 @@ function formatDateForDateInput(date) {
   return localDate.toISOString().split(dateInputSeparator)[0];
 }
 
+function isValidDate(date) {
+  return !Number.isNaN(date.getTime());
+}
+
 function parseTodoDate(dateValue) {
   if (!dateValue) {
     return null;
   }
 
   const dueDate = new Date(dateValue);
-  if (Number.isNaN(dueDate.getTime())) {
+  if (!isValidDate(dueDate)) {
     return null;
   }
 
