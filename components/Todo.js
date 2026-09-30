@@ -3,6 +3,7 @@ const DATE_FORMAT_OPTIONS = {
   month: "short",
   day: "numeric",
 };
+const DATE_TIME_SEPARATOR = "T";
 
 const TODO_CHECKBOX_SELECTOR = ".todo__completed";
 const TODO_LABEL_SELECTOR = ".todo__label";
@@ -121,7 +122,7 @@ class Todo {
   }
 
   _getDateTimeValue(date) {
-    return date.toISOString().split("T")[0];
+    return date.toISOString().split(DATE_TIME_SEPARATOR)[0];
   }
 
   _generateDeleteBtn() {
