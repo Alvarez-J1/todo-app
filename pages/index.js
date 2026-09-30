@@ -28,7 +28,7 @@ if (!addTodoPopupElement) {
   throw new Error(`Add todo popup not found: ${addPopupSelector}`);
 }
 
-if (!todoDateInput) {
+if (!(todoDateInput instanceof HTMLInputElement)) {
   throw new Error(`Todo date input not found: ${todoDateSelector}`);
 }
 
