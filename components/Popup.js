@@ -27,6 +27,7 @@ export default class Popup {
 
     this._handleDocumentKeydown = this._handleDocumentKeydown.bind(this);
     this._isOpen = false;
+    this._previousFocusedElement = null;
   }
 
   _handleDocumentKeydown(evt) {
@@ -127,11 +128,25 @@ export default class Popup {
     this._isOpen = isOpen;
   }
 
+  _saveFocusedElement() {
+    this._previousFocusedElement = document.activeElement;
+
+    if (!(this._previousFocusedElement instanceof HTMLElement)) {
+      this._previousFocusedElement = null;
+    }
+  }
+
+  _restoreFocus() {
+    this._previousFocusedElement?.focus();
+    this._previousFocusedElement = null;
+  }
+
   open() {
     if (this._isPopupOpen()) {
       return;
     }
 
+    this._saveFocusedElement();
     this._showPopupElement();
     this._addEscapeCloseListener();
     this._setOpenState(true);
@@ -146,6 +161,7 @@ export default class Popup {
     this._removeEscapeCloseListener();
     this._setOpenState(false);
     this._dispatchCloseEvent();
+    this._restoreFocus();
   }
 
   setEventListeners() {
