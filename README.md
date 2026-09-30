@@ -29,6 +29,10 @@ Techniques:
 2. Debugging techniques: Using console logs or breakpoints.
 3. Coding Paradigms: Object-Oriented Programming.
 
+## Development
+
+Run `npm run check` to syntax-check the JavaScript modules.
+
 ## Deployment
 
 This project is deployed on GitHub Pages: https://alvarez-j1.github.io/todo-app/
