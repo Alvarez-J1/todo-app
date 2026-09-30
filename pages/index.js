@@ -15,6 +15,7 @@ const todoDateSelector = "#todo-date";
 const popupCloseEvent = "popup:close";
 const todoNameField = "name";
 const todoDateField = "date";
+const dateInputSeparator = "T";
 
 const addTodoButton = document.querySelector(addButtonSelector);
 const addTodoPopupElement = document.querySelector(addPopupSelector);
@@ -37,7 +38,7 @@ const todoCounter = new TodoCounter(initialTodos, counterSelector);
 function formatDateForDateInput(date) {
   const localDate = new Date(date);
   localDate.setMinutes(localDate.getMinutes() - localDate.getTimezoneOffset());
-  return localDate.toISOString().split("T")[0];
+  return localDate.toISOString().split(dateInputSeparator)[0];
 }
 
 function parseTodoDate(dateValue) {
