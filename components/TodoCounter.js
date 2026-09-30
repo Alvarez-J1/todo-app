@@ -4,6 +4,10 @@ const COUNTER_TEXT_SUFFIX = "completed";
 
 export default class TodoCounter {
   constructor(todos, selector) {
+    if (!Array.isArray(todos)) {
+      throw new Error("Todo counter requires an array of todos.");
+    }
+
     this._element = document.querySelector(selector);
 
     if (!this._element) {
