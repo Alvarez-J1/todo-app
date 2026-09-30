@@ -17,6 +17,10 @@ export default class Section {
   }
 
   addItem(element) {
+    if (!(element instanceof Node)) {
+      throw new Error("Section item must be a DOM node.");
+    }
+
     this._container.append(element);
   }
 }
