@@ -22,7 +22,7 @@ export default class PopupWithForm extends Popup {
   }
 
   _getInputValues() {
-    const values = {};
+    const values = Object.create(null);
     this._inputList.forEach((input) => {
       if (!input.name) {
         return;
