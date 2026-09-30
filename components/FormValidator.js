@@ -75,12 +75,13 @@ class FormValidator {
 
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._getErrorElement(inputElement);
+    this._setInputErrorVisible(inputElement, true);
+    this._setInputInvalid(inputElement, true);
+
     if (!errorElement) {
       return;
     }
 
-    this._setInputErrorVisible(inputElement, true);
-    this._setInputInvalid(inputElement, true);
     this._setErrorText(errorElement, errorMessage);
     this._setErrorVisible(errorElement, true);
   }
