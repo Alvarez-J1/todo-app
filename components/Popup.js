@@ -5,8 +5,17 @@ const ARIA_HIDDEN_ATTRIBUTE = "aria-hidden";
 const ARIA_FALSE_VALUE = "false";
 const ARIA_TRUE_VALUE = "true";
 const ESCAPE_KEY = "Escape";
+const TAB_KEY = "Tab";
 const KEYDOWN_EVENT = "keydown";
 const CLICK_EVENT = "click";
+const FOCUSABLE_SELECTOR = [
+  "a[href]",
+  "button:not([disabled])",
+  "input:not([disabled])",
+  "select:not([disabled])",
+  "textarea:not([disabled])",
+  "[tabindex]:not([tabindex='-1'])",
+].join(", ");
 
 export default class Popup {
   constructor({ popupSelector }) {
@@ -23,6 +32,38 @@ export default class Popup {
   _handleDocumentKeydown(evt) {
     if (evt.key === ESCAPE_KEY) {
       this.close();
+      return;
+    }
+
+    if (evt.key === TAB_KEY) {
+      this._trapFocus(evt);
+    }
+  }
+
+  _getFocusableElements() {
+    return Array.from(this._popupElement.querySelectorAll(FOCUSABLE_SELECTOR));
+  }
+
+  _trapFocus(evt) {
+    const focusableElements = this._getFocusableElements();
+
+    if (focusableElements.length === 0) {
+      evt.preventDefault();
+      return;
+    }
+
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement =
+      focusableElements[focusableElements.length - 1];
+
+    if (evt.shiftKey && document.activeElement === firstFocusableElement) {
+      evt.preventDefault();
+      lastFocusableElement.focus();
+    }
+
+    if (!evt.shiftKey && document.activeElement === lastFocusableElement) {
+      evt.preventDefault();
+      firstFocusableElement.focus();
     }
   }
 
