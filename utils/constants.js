@@ -28,6 +28,16 @@ const initialTodos = [
   },
 ];
 
+/**
+ * @typedef {Object} ValidationConfig
+ * @property {string} inputSelector
+ * @property {string} submitButtonSelector
+ * @property {string} errorClass
+ * @property {string} inputErrorClass
+ * @property {string} inactiveButtonClass
+ */
+
+/** @type {ValidationConfig} */
 const validationConfig = {
   inputSelector: ".popup__input",
   submitButtonSelector: "#todo-submit",
