@@ -138,6 +138,10 @@ class Todo {
 
   _setEventListeners() {
     this._todoCheckboxEl.addEventListener("change", (evt) => {
+      if (!(evt.target instanceof HTMLInputElement)) {
+        return;
+      }
+
       this._setCompletion(evt.target.checked);
       this._handleCheck(this._completed);
     });
