@@ -43,6 +43,18 @@ class Todo {
     return `Delete ${this._getTodoName()}`;
   }
 
+  _getCheckboxLabel() {
+    const nextState = this._completed ? "incomplete" : "complete";
+    return `Mark ${this._getTodoName()} ${nextState}`;
+  }
+
+  _setCheckboxLabel() {
+    this._todoCheckboxEl.setAttribute(
+      ARIA_LABEL_ATTRIBUTE,
+      this._getCheckboxLabel()
+    );
+  }
+
   _generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(
       TODO_CHECKBOX_SELECTOR
@@ -63,10 +75,7 @@ class Todo {
 
     this._todoCheckboxEl.id = checkboxId;
     this._todoCheckboxEl.setAttribute(NAME_ATTRIBUTE, checkboxId);
-    this._todoCheckboxEl.setAttribute(
-      ARIA_LABEL_ATTRIBUTE,
-      this._getTodoName()
-    );
+    this._setCheckboxLabel();
     todoLabel.setAttribute(FOR_ATTRIBUTE, checkboxId);
   }
 
@@ -142,6 +151,7 @@ class Todo {
   _setCompletion = (completed) => {
     this._completed = completed;
     this._todoElement.classList.toggle(TODO_COMPLETED_CLASS, this._completed);
+    this._setCheckboxLabel();
   };
 
   _remove = () => {
