@@ -4,7 +4,6 @@ const ARIA_DISABLED_ATTRIBUTE = "aria-disabled";
 const EMPTY_ERROR_MESSAGE = "";
 const INPUT_EVENT = "input";
 const SUBMIT_EVENT = "submit";
-const ARIA_FALSE_VALUE = "false";
 const ARIA_TRUE_VALUE = "true";
 
 class FormValidator {
@@ -56,10 +55,15 @@ class FormValidator {
   }
 
   _setButtonAriaDisabled(isDisabled) {
-    this._buttonElement.setAttribute(
-      ARIA_DISABLED_ATTRIBUTE,
-      isDisabled ? ARIA_TRUE_VALUE : ARIA_FALSE_VALUE
-    );
+    if (isDisabled) {
+      this._buttonElement.setAttribute(
+        ARIA_DISABLED_ATTRIBUTE,
+        ARIA_TRUE_VALUE
+      );
+      return;
+    }
+
+    this._buttonElement.removeAttribute(ARIA_DISABLED_ATTRIBUTE);
   }
 
   _setButtonNativeDisabled(isDisabled) {
