@@ -16,11 +16,11 @@ export default class Popup {
       throw new Error(`Popup element not found: ${popupSelector}`);
     }
 
-    this._handleEscapeClose = this._handleEscapeClose.bind(this);
+    this._handleDocumentKeydown = this._handleDocumentKeydown.bind(this);
     this._isOpen = false;
   }
 
-  _handleEscapeClose(evt) {
+  _handleDocumentKeydown(evt) {
     if (evt.key === ESCAPE_KEY) {
       this.close();
     }
@@ -59,11 +59,11 @@ export default class Popup {
   }
 
   _addEscapeCloseListener() {
-    document.addEventListener(KEYDOWN_EVENT, this._handleEscapeClose);
+    document.addEventListener(KEYDOWN_EVENT, this._handleDocumentKeydown);
   }
 
   _removeEscapeCloseListener() {
-    document.removeEventListener(KEYDOWN_EVENT, this._handleEscapeClose);
+    document.removeEventListener(KEYDOWN_EVENT, this._handleDocumentKeydown);
   }
 
   _showPopupElement() {
