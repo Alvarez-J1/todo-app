@@ -41,7 +41,9 @@ export default class Popup {
   }
 
   _getFocusableElements() {
-    return Array.from(this._popupElement.querySelectorAll(FOCUSABLE_SELECTOR));
+    return Array.from(
+      this._popupElement.querySelectorAll(FOCUSABLE_SELECTOR)
+    ).filter((element) => element instanceof HTMLElement);
   }
 
   _trapFocus(evt) {
