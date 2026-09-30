@@ -12,6 +12,8 @@ const TODO_NAME_SELECTOR = ".todo__name";
 const TODO_TEMPLATE_ITEM_SELECTOR = ".todo";
 const TODO_COMPLETED_CLASS = "todo_completed";
 const TODO_ID_PREFIX = "todo";
+const TODO_COMPLETE_ACTION = "complete";
+const TODO_INCOMPLETE_ACTION = "incomplete";
 const ARIA_LABEL_ATTRIBUTE = "aria-label";
 const DATETIME_ATTRIBUTE = "datetime";
 const FOR_ATTRIBUTE = "for";
@@ -44,7 +46,9 @@ class Todo {
   }
 
   _getCheckboxLabel() {
-    const nextState = this._completed ? "incomplete" : "complete";
+    const nextState = this._completed
+      ? TODO_INCOMPLETE_ACTION
+      : TODO_COMPLETE_ACTION;
     return `Mark ${this._getTodoName()} ${nextState}`;
   }
 
