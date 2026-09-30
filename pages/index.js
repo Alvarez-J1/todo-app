@@ -110,7 +110,7 @@ newTodoValidator.enableValidation();
 function openAddTodoPopup() {
   const todoNameInput = addTodoForm.elements[todoNameField];
 
-  if (!todoNameInput) {
+  if (!(todoNameInput instanceof HTMLInputElement)) {
     throw new Error(`Todo name input not found: ${todoNameField}`);
   }
 
