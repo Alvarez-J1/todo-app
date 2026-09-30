@@ -4,6 +4,7 @@
   "description": "Todo App",
   "main": "index.js",
   "scripts": {
+    "check": "node --check pages/index.js && node --check components/FormValidator.js && node --check components/Popup.js && node --check components/PopupWithForm.js && node --check components/Section.js && node --check components/Todo.js && node --check components/TodoCounter.js && node --check utils/constants.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
